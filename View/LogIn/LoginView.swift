@@ -26,9 +26,9 @@ struct LoginView: View {
                     .font(.custom("Cafe24Dongdong", size: 60))
                     .foregroundStyle(Color.appColor4)
 
-                Text("나만의 복용 일정 관리")
-                    .font(.custom("Cafe24Dongdong", size: 18))
-                    .foregroundStyle(Color.secondary)
+                Image("pill")
+                    .resizable()
+                    .frame(width: 250, height: 250)
 
                 Spacer().frame(height: 20)
 
