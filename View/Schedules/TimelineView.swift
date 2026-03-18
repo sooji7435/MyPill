@@ -26,7 +26,7 @@ struct TimelineView: View {
                 .foregroundStyle(.black)
                 .disclosureGroupStyle(MyDisclosureStyle())
                 .padding()
-                .background(Color.appColor2, in: RoundedRectangle(cornerRadius: 20))
+                .background(Color.BackGroundColor, in: RoundedRectangle(cornerRadius: 20))
             }
             .animation(.spring(), value: schedule.schedules)
         }

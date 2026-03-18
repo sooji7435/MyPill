@@ -80,7 +80,7 @@ struct ScheduleAddView: View {
                     Text(selectedDate.formatted(date: .numeric, time: .omitted))
                         .font(.custom("Cafe24Dongdong", size: 22)).foregroundStyle(.black)
                     Spacer()
-                    Image(systemName: "calendar").foregroundStyle(Color.appColor1)
+                    Image(systemName: "calendar").foregroundStyle(Color.BackGroundColor)
                 }
             }
         }
@@ -93,7 +93,7 @@ struct ScheduleAddView: View {
                     Text(selectedTime.formatted(date: .omitted, time: .shortened))
                         .font(.custom("Cafe24Dongdong", size: 22)).foregroundStyle(.black)
                     Spacer()
-                    Image(systemName: "clock").foregroundStyle(Color.appColor1)
+                    Image(systemName: "clock").foregroundStyle(Color.MainColor)
                 }
             }
         }
@@ -130,7 +130,7 @@ struct ScheduleAddView: View {
         VStack {
             Text("날짜 선택").font(.custom("Cafe24Dongdong", size: 28)).foregroundStyle(.black).padding(.top)
             DatePicker("", selection: $selectedDate, displayedComponents: .date)
-                .datePickerStyle(.graphical).tint(.appColor1).padding()
+                .datePickerStyle(.graphical).tint(Color.TintColor).padding()
         }
     }
 

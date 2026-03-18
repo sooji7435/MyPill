@@ -15,7 +15,7 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                LinearGradient(colors: [.appColor1, .white], startPoint: .top, endPoint: .bottom)
+                LinearGradient(colors: [Color.BackGroundColor, .white], startPoint: .top, endPoint: .bottom)
                     .ignoresSafeArea()
 
                 ScrollView {

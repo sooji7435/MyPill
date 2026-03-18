@@ -10,9 +10,9 @@ import SwiftUI
 // MARK: - Asset 기반 색상 확장
 extension Color {
     // Asset 원본
-    static let appColor1 = Color("Color1")
-    static let appColor2 = Color("Color2 ")
-    static let appColor3 = Color("Color3")
+    static let BackGroundColor = Color("Color1")
+    static let MainColor = Color("Color2")
+    static let TintColor = Color("Color3")
     static let appColor4 = Color("Color4")
 }
 

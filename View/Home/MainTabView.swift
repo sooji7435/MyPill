@@ -6,8 +6,6 @@
 import SwiftUI
 
 struct MainTabView: View {
-    @State private var showLaunch = true
-
     var body: some View {
         ZStack {
             TabView {
@@ -26,16 +24,7 @@ struct MainTabView: View {
                 }
             }
             .tabViewStyle(.sidebarAdaptable)
-            .tint(.appColor4)
-
-            if showLaunch {
-                LaunchView()
-                    .onAppear {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                            withAnimation(.smooth) { showLaunch = false }
-                        }
-                    }
-            }
+            .tint(Color.MainColor)
         }
     }
 }

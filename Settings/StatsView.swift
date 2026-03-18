@@ -60,7 +60,7 @@ struct StatsView: View {
         VStack(spacing: 8) {
             ZStack {
                 Circle()
-                    .stroke(Color.appColor1.opacity(0.2), lineWidth: 16)
+                    .stroke(Color.BackGroundColor.opacity(0.2), lineWidth: 16)
                     .frame(width: 140, height: 140)
 
                 Circle()

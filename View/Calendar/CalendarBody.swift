@@ -37,7 +37,7 @@ struct CalendarBody: View {
         } label: {
             ZStack {
                 Circle()
-                    .foregroundColor(isSelected ? .appColor1 : .clear)
+                    .foregroundColor(isSelected ? Color.BackGroundColor : .clear)
                 Text("\(value.day)")
                     .font(.custom("Cafe24Dongdong", size: 30))
                     .fontWeight(.semibold)

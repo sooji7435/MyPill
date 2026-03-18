@@ -25,9 +25,10 @@ struct MyMedicine: View {
                     .resizable()
                     .frame(width: 44, height: 44)
                     .padding()
-                    .background(Color.appColor4.opacity(0.2))
+                    .background(Color.MainColor.opacity(0.2))
                     .clipShape(Circle())
-                    .foregroundStyle(.gray)
+                    .foregroundStyle(.gray.opacity(0.3))
+                
                 Text("추가")
                     .foregroundStyle(.gray)
                     .font(.custom("Cafe24Dongdong", size: 24))

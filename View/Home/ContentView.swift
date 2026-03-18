@@ -10,10 +10,7 @@ struct ContentView: View {
 
     var body: some View {
         Group {
-            if auth.isLoading {
-                // 앱 시작 시 세션 확인 중 — LaunchView 재활용
-                LaunchView()
-            } else if auth.isLoggedIn {
+            if auth.isLoggedIn {
                 MainTabView()
             } else {
                 LoginView()

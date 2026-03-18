@@ -17,7 +17,7 @@ struct CalendarHeader: View {
                     .font(Font.custom("Cafe24Dongdong", size: 30))
                     .fontWeight(.semibold)
                     .frame(maxWidth: .infinity)
-                    .foregroundStyle(day == "일" ? Color.red : Color.black)
+                    .foregroundStyle(day == "일" ? Color.MainColor : Color.black)
             }
         }
         .padding(.vertical)
