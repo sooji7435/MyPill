@@ -17,7 +17,6 @@ struct ContentView: View {
             }
         }
         // 로그인 상태 변경 시 애니메이션
-        .animation(.easeInOut(duration: 0.3), value: auth.isLoggedIn)
     }
 }
 
