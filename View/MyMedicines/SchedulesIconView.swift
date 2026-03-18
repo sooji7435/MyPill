@@ -22,7 +22,7 @@ struct SchedulesIconView: View {
                         .resizable()
                         .frame(width: 44, height: 44)
                         .padding()
-                        .background(Color.appColor4.opacity(0.2))
+                        .background(Color.MainColor.opacity(0.2))
                         .clipShape(Circle())
                     Text(item.title)
                         .font(.custom("Cafe24Dongdong", size: 24))
