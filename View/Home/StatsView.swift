@@ -95,17 +95,17 @@ struct StatsView: View {
                     y: .value("복용률", stat.adherenceRate)
                 )
                 .foregroundStyle(
-                    stat.adherenceRate >= 0.8 ? Color.appColor4 :
-                    stat.adherenceRate >= 0.5 ? Color.orange : Color.red
+                    stat.adherenceRate >= 0.8 ? Color.MainColor :
+                    stat.adherenceRate >= 0.5 ? Color.orange : Color.color4
                 )
                 .cornerRadius(6)
 
                 // 목표선 (80%)
-                RuleMark(y: .value("목표", 0.8))
+                RuleMark(y: .value("목표", 0.75))
                     .lineStyle(StrokeStyle(lineWidth: 1, dash: [4]))
                     .foregroundStyle(.gray.opacity(0.5))
                     .annotation(position: .top, alignment: .trailing) {
-                        Text("목표 80%").font(.caption2).foregroundStyle(.gray)
+                        Text("목표 75%").font(.caption2).foregroundStyle(.gray)
                     }
             }
             .chartYScale(domain: 0...1)
@@ -136,7 +136,7 @@ struct StatsView: View {
         let perfect = stats.filter { $0.total > 0 && $0.taken == $0.total }.count
 
         return HStack(spacing: 12) {
-            StatCard(title: "복용 완료", value: "\(taken)회", color: .appColor4)
+            StatCard(title: "복용 완료", value: "\(taken)회", color: .MainColor)
             StatCard(title: "누락",     value: "\(missed)회", color: .red)
             StatCard(title: "완벽한 날", value: "\(perfect)일", color: .orange)
         }

@@ -35,6 +35,7 @@ struct MyPillApp: App {
                 .environmentObject(googleViewModel)
                 .onAppear {
                     googleViewModel.authViewModel = authViewModel
+                    googleViewModel.restoreSession()
                     NotificationManager.shared.requestPermission()
                 }
                 .onOpenURL { url in

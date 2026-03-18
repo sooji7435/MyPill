@@ -59,7 +59,7 @@ struct ScheduleAddView: View {
             } label: {
                 Text("저장")
                     .font(.custom("Cafe24Dongdong", size: 24))
-                    .foregroundStyle(canSave ? Color.appColor4 : .gray)
+                    .foregroundStyle(canSave ? Color.MainColor : .gray)
             }
             .disabled(!canSave)
         }
@@ -113,7 +113,7 @@ struct ScheduleAddView: View {
                     Button { iconName = icon } label: {
                         ZStack {
                             RoundedRectangle(cornerRadius: 12)
-                                .stroke(iconName == icon ? Color.appColor4 : Color.gray.opacity(0.3),
+                                .stroke(iconName == icon ? Color.MainColor : Color.gray.opacity(0.3),
                                         lineWidth: iconName == icon ? 3 : 1)
                                 .frame(height: 70)
                             Image(icon).resizable().scaledToFit().padding(25)

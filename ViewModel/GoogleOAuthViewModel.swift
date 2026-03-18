@@ -26,19 +26,35 @@ enum GoogleAuthError: LocalizedError {
     }
 }
 
-
 class GoogleOAuthViewModel: ObservableObject {
     @Published var oauthUserData = OAuthUserData()
     @Published var givenName: String?
     @Published var authError: GoogleAuthError?
 
-    // 로그인 성공 시 AuthViewModel의 상태를 바꾸기 위해 참조 보관
     weak var authViewModel: AuthViewModel?
 
     var isSignedIn: Bool {
         GIDSignIn.sharedInstance.currentUser != nil
     }
 
+    // MARK: - 앱 시작 시 이전 세션 복원 (껐다 켜도 로그인 유지)
+    func restoreSession() {
+        GIDSignIn.sharedInstance.restorePreviousSignIn { [weak self] user, error in
+            guard let self else { return }
+            if let user {
+                self.givenName     = user.profile?.givenName
+                self.oauthUserData = OAuthUserData(
+                    oauthId: user.userID ?? "",
+                    idToken: user.idToken?.tokenString ?? ""
+                )
+                self.authViewModel?.isLoggedIn = true
+            }
+            // 복원 실패 시 로그인 화면 표시
+            self.authViewModel?.isLoading = false
+        }
+    }
+
+    // MARK: - 유저 정보 동기화
     func checkUserInfo() {
         guard let user = GIDSignIn.sharedInstance.currentUser else {
             authError = .notLoggedIn
@@ -51,6 +67,7 @@ class GoogleOAuthViewModel: ObservableObject {
         )
     }
 
+    // MARK: - 로그인
     func signIn() {
         guard let rootVC = UIApplication.shared
             .connectedScenes
@@ -65,14 +82,14 @@ class GoogleOAuthViewModel: ObservableObject {
             guard let self else { return }
             if let error {
                 self.authError = .signInFailed(error)
-                print(error)
                 return
             }
             self.checkUserInfo()
-            self.authViewModel?.isLoggedIn = true   // 로그인 성공 → 화면 전환
+            self.authViewModel?.isLoggedIn = true
         }
     }
 
+    // MARK: - 로그아웃
     func signOut() {
         GIDSignIn.sharedInstance.signOut()
         oauthUserData = OAuthUserData()

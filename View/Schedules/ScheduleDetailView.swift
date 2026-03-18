@@ -29,7 +29,7 @@ struct ScheduleDetailView: View {
             }
             .padding(16)
 
-            // ✅ missed 상태일 때만 스누즈 버튼 표시
+            // missed 상태일 때만 스누즈 버튼 표시
             if schedule.isMissed && !schedule.isTaken {
                 snoozeButton
                     .padding(.horizontal, 16)
