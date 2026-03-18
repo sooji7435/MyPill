@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.749658142190-4iebo1ai6jr0c84r7n0rbvi7o65juok2</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.749658142190-7946v2cpe0c08halisd01oujo6hc7aio</string>
+			</array>
+		</dict>
+	</array>
+	<key>GIDClientID</key>
+	<string>749658142190-7946v2cpe0c08halisd01oujo6hc7aio.apps.googleusercontent.com</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>나눔손글씨 꽃내음.ttf</string>
+		<string>나눔손글씨 맛있는체.ttf</string>
+		<string>BMJA.otf</string>
+		<string>BMJUA.ttf</string>
+		<string>Cafe24Dongdong.ttf</string>
+	</array>
+</dict>
+</plist>
