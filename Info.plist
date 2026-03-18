@@ -31,5 +31,10 @@
 		<string>BMJUA.ttf</string>
 		<string>Cafe24Dongdong.ttf</string>
 	</array>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIImageName</key>
+		<string>appLogo</string>
+	</dict>
 </dict>
 </plist>
