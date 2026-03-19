@@ -16,7 +16,6 @@ struct ContentView: View {
                 LoginView()
             }
         }
-        // 로그인 상태 변경 시 애니메이션
     }
 }
 
