@@ -42,7 +42,7 @@ class GoogleOAuthViewModel: ObservableObject {
         GIDSignIn.sharedInstance.restorePreviousSignIn { [weak self] user, error in
             guard let self else { return }
             if let user {
-                self.givenName     = user.profile?.givenName
+                self.givenName = user.profile?.givenName
                 self.oauthUserData = OAuthUserData(
                     oauthId: user.userID ?? "",
                     idToken: user.idToken?.tokenString ?? ""
