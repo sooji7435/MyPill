@@ -1,0 +1,930 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1CFFB591A636E2DAA1581F3D /* Pods_MyPill_MyPillUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC12735C36658A5EF45919D /* Pods_MyPill_MyPillUITests.framework */; };
+		C58D0C2506D649A3BB292C16 /* Pods_MyPillTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C1A1B4C1FB64E37903F27FA /* Pods_MyPillTests.framework */; };
+		F828E1712F6A5B7300C95259 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F828E1702F6A5B7300C95259 /* WidgetKit.framework */; };
+		F828E1732F6A5B7300C95259 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F828E1722F6A5B7300C95259 /* SwiftUI.framework */; };
+		F828E1842F6A5B7500C95259 /* MyPillWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F828E16F2F6A5B7300C95259 /* MyPillWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F8A006F62E53256B008D94DD /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = F8A006F52E53256B008D94DD /* GoogleSignIn */; };
+		F8A006F82E53256B008D94DD /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F8A006F72E53256B008D94DD /* GoogleSignInSwift */; };
+		F8E218152E4B60FD002F6C8F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F8E218142E4B60FD002F6C8F /* FirebaseAuth */; };
+		F8E218172E4B60FD002F6C8F /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = F8E218162E4B60FD002F6C8F /* FirebaseCore */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F828E1822F6A5B7500C95259 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8E217A72E4B59BF002F6C8F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F828E16E2F6A5B7300C95259;
+			remoteInfo = MyPillWidgetExtension;
+		};
+		F8E217BD2E4B59C1002F6C8F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8E217A72E4B59BF002F6C8F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F8E217AE2E4B59BF002F6C8F;
+			remoteInfo = MyPill;
+		};
+		F8E217C72E4B59C1002F6C8F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8E217A72E4B59BF002F6C8F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F8E217AE2E4B59BF002F6C8F;
+			remoteInfo = MyPill;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F828E1892F6A5B7500C95259 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F828E1842F6A5B7500C95259 /* MyPillWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		44AD4FE9079059BF37DE9500 /* Pods-MyPill.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyPill.debug.xcconfig"; path = "Target Support Files/Pods-MyPill/Pods-MyPill.debug.xcconfig"; sourceTree = "<group>"; };
+		69D1FE3042D561AF4485281A /* Pods-MyPillTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyPillTests.debug.xcconfig"; path = "Target Support Files/Pods-MyPillTests/Pods-MyPillTests.debug.xcconfig"; sourceTree = "<group>"; };
+		87DCA76CCBB99D17D38D76EF /* Pods-MyPillTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyPillTests.release.xcconfig"; path = "Target Support Files/Pods-MyPillTests/Pods-MyPillTests.release.xcconfig"; sourceTree = "<group>"; };
+		8AC12735C36658A5EF45919D /* Pods_MyPill_MyPillUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyPill_MyPillUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		93200F6668E2DB86CBFDD3B0 /* Pods_MyPill.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyPill.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C1A1B4C1FB64E37903F27FA /* Pods_MyPillTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyPillTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9A391A133C0848C447A9662 /* Pods-MyPill-MyPillUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyPill-MyPillUITests.debug.xcconfig"; path = "Target Support Files/Pods-MyPill-MyPillUITests/Pods-MyPill-MyPillUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		ED571B0A70A85BB3CDDB3E50 /* Pods-MyPill-MyPillUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyPill-MyPillUITests.release.xcconfig"; path = "Target Support Files/Pods-MyPill-MyPillUITests/Pods-MyPill-MyPillUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F828E16F2F6A5B7300C95259 /* MyPillWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MyPillWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F828E1702F6A5B7300C95259 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		F828E1722F6A5B7300C95259 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		F8E217AF2E4B59BF002F6C8F /* MyPill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPill.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8E217BC2E4B59C1002F6C8F /* MyPillTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyPillTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8E217C62E4B59C1002F6C8F /* MyPillUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyPillUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF469DD7343ED20A59AA6B86 /* Pods-MyPill.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyPill.release.xcconfig"; path = "Target Support Files/Pods-MyPill/Pods-MyPill.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		F89BB18F2F76CD340035AA82 /* Exceptions for "MyPill" folder in "MyPill" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = F8E217AE2E4B59BF002F6C8F /* MyPill */;
+		};
+		F89BB1902F76CDEA0035AA82 /* Exceptions for "MyPillWidget" folder in "MyPillWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = F828E16E2F6A5B7300C95259 /* MyPillWidgetExtension */;
+		};
+		F89BB1922F76CE280035AA82 /* Exceptions for "MyPill" folder in "MyPillWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Manager/ColorManager.swift,
+				Model/Schedule.swift,
+				Widget/SharedStore.swift,
+			);
+			target = F828E16E2F6A5B7300C95259 /* MyPillWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		F828E1742F6A5B7300C95259 /* MyPillWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				F89BB1902F76CDEA0035AA82 /* Exceptions for "MyPillWidget" folder in "MyPillWidgetExtension" target */,
+			);
+			path = MyPillWidget;
+			sourceTree = "<group>";
+		};
+		F8E217B12E4B59BF002F6C8F /* MyPill */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				F89BB18F2F76CD340035AA82 /* Exceptions for "MyPill" folder in "MyPill" target */,
+				F89BB1922F76CE280035AA82 /* Exceptions for "MyPill" folder in "MyPillWidgetExtension" target */,
+			);
+			path = MyPill;
+			sourceTree = "<group>";
+		};
+		F8E217BF2E4B59C1002F6C8F /* MyPillTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MyPillTests;
+			sourceTree = "<group>";
+		};
+		F8E217C92E4B59C1002F6C8F /* MyPillUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MyPillUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F828E16C2F6A5B7300C95259 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F828E1732F6A5B7300C95259 /* SwiftUI.framework in Frameworks */,
+				F828E1712F6A5B7300C95259 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8E217AC2E4B59BF002F6C8F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8E218172E4B60FD002F6C8F /* FirebaseCore in Frameworks */,
+				F8E218152E4B60FD002F6C8F /* FirebaseAuth in Frameworks */,
+				F8A006F62E53256B008D94DD /* GoogleSignIn in Frameworks */,
+				F8A006F82E53256B008D94DD /* GoogleSignInSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8E217B92E4B59C1002F6C8F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C58D0C2506D649A3BB292C16 /* Pods_MyPillTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8E217C32E4B59C1002F6C8F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CFFB591A636E2DAA1581F3D /* Pods_MyPill_MyPillUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6DCDC5944F04D011A8B6D822 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				44AD4FE9079059BF37DE9500 /* Pods-MyPill.debug.xcconfig */,
+				FF469DD7343ED20A59AA6B86 /* Pods-MyPill.release.xcconfig */,
+				E9A391A133C0848C447A9662 /* Pods-MyPill-MyPillUITests.debug.xcconfig */,
+				ED571B0A70A85BB3CDDB3E50 /* Pods-MyPill-MyPillUITests.release.xcconfig */,
+				69D1FE3042D561AF4485281A /* Pods-MyPillTests.debug.xcconfig */,
+				87DCA76CCBB99D17D38D76EF /* Pods-MyPillTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		99FEC8BE86DA3530D0628846 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F828E1702F6A5B7300C95259 /* WidgetKit.framework */,
+				F828E1722F6A5B7300C95259 /* SwiftUI.framework */,
+				93200F6668E2DB86CBFDD3B0 /* Pods_MyPill.framework */,
+				8AC12735C36658A5EF45919D /* Pods_MyPill_MyPillUITests.framework */,
+				9C1A1B4C1FB64E37903F27FA /* Pods_MyPillTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F8E217A62E4B59BF002F6C8F = {
+			isa = PBXGroup;
+			children = (
+				F8E217B12E4B59BF002F6C8F /* MyPill */,
+				F8E217BF2E4B59C1002F6C8F /* MyPillTests */,
+				F8E217C92E4B59C1002F6C8F /* MyPillUITests */,
+				F828E1742F6A5B7300C95259 /* MyPillWidget */,
+				F8E217B02E4B59BF002F6C8F /* Products */,
+				6DCDC5944F04D011A8B6D822 /* Pods */,
+				99FEC8BE86DA3530D0628846 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F8E217B02E4B59BF002F6C8F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F8E217AF2E4B59BF002F6C8F /* MyPill.app */,
+				F8E217BC2E4B59C1002F6C8F /* MyPillTests.xctest */,
+				F8E217C62E4B59C1002F6C8F /* MyPillUITests.xctest */,
+				F828E16F2F6A5B7300C95259 /* MyPillWidgetExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F828E16E2F6A5B7300C95259 /* MyPillWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F828E1852F6A5B7500C95259 /* Build configuration list for PBXNativeTarget "MyPillWidgetExtension" */;
+			buildPhases = (
+				F828E16B2F6A5B7300C95259 /* Sources */,
+				F828E16C2F6A5B7300C95259 /* Frameworks */,
+				F828E16D2F6A5B7300C95259 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				F828E1742F6A5B7300C95259 /* MyPillWidget */,
+			);
+			name = MyPillWidgetExtension;
+			productName = MyPillWidgetExtension;
+			productReference = F828E16F2F6A5B7300C95259 /* MyPillWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		F8E217AE2E4B59BF002F6C8F /* MyPill */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8E217D02E4B59C1002F6C8F /* Build configuration list for PBXNativeTarget "MyPill" */;
+			buildPhases = (
+				8E80C8FF98DF3E53D5B2E7D9 /* [CP] Check Pods Manifest.lock */,
+				F8E217AB2E4B59BF002F6C8F /* Sources */,
+				F8E217AC2E4B59BF002F6C8F /* Frameworks */,
+				F8E217AD2E4B59BF002F6C8F /* Resources */,
+				F828E1892F6A5B7500C95259 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F828E1832F6A5B7500C95259 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				F8E217B12E4B59BF002F6C8F /* MyPill */,
+			);
+			name = MyPill;
+			packageProductDependencies = (
+				F8E218142E4B60FD002F6C8F /* FirebaseAuth */,
+				F8E218162E4B60FD002F6C8F /* FirebaseCore */,
+				F8A006F52E53256B008D94DD /* GoogleSignIn */,
+				F8A006F72E53256B008D94DD /* GoogleSignInSwift */,
+			);
+			productName = MyPill;
+			productReference = F8E217AF2E4B59BF002F6C8F /* MyPill.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F8E217BB2E4B59C1002F6C8F /* MyPillTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8E217D32E4B59C1002F6C8F /* Build configuration list for PBXNativeTarget "MyPillTests" */;
+			buildPhases = (
+				9DB8D4763FA578E9C6CC592F /* [CP] Check Pods Manifest.lock */,
+				F8E217B82E4B59C1002F6C8F /* Sources */,
+				F8E217B92E4B59C1002F6C8F /* Frameworks */,
+				F8E217BA2E4B59C1002F6C8F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F8E217BE2E4B59C1002F6C8F /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				F8E217BF2E4B59C1002F6C8F /* MyPillTests */,
+			);
+			name = MyPillTests;
+			productName = MyPillTests;
+			productReference = F8E217BC2E4B59C1002F6C8F /* MyPillTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F8E217C52E4B59C1002F6C8F /* MyPillUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8E217D62E4B59C1002F6C8F /* Build configuration list for PBXNativeTarget "MyPillUITests" */;
+			buildPhases = (
+				34200F6039758822DA91E6E5 /* [CP] Check Pods Manifest.lock */,
+				F8E217C22E4B59C1002F6C8F /* Sources */,
+				F8E217C32E4B59C1002F6C8F /* Frameworks */,
+				F8E217C42E4B59C1002F6C8F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F8E217C82E4B59C1002F6C8F /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				F8E217C92E4B59C1002F6C8F /* MyPillUITests */,
+			);
+			name = MyPillUITests;
+			productName = MyPillUITests;
+			productReference = F8E217C62E4B59C1002F6C8F /* MyPillUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F8E217A72E4B59BF002F6C8F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2630;
+				LastUpgradeCheck = 2630;
+				TargetAttributes = {
+					F828E16E2F6A5B7300C95259 = {
+						CreatedOnToolsVersion = 26.3;
+					};
+					F8E217AE2E4B59BF002F6C8F = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					F8E217BB2E4B59C1002F6C8F = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = F8E217AE2E4B59BF002F6C8F;
+					};
+					F8E217C52E4B59C1002F6C8F = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = F8E217AE2E4B59BF002F6C8F;
+					};
+				};
+			};
+			buildConfigurationList = F8E217AA2E4B59BF002F6C8F /* Build configuration list for PBXProject "MyPill" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F8E217A62E4B59BF002F6C8F;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				F8E218132E4B60FD002F6C8F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				F8A006B22E531EDA008D94DD /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = F8E217B02E4B59BF002F6C8F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F8E217AE2E4B59BF002F6C8F /* MyPill */,
+				F8E217BB2E4B59C1002F6C8F /* MyPillTests */,
+				F8E217C52E4B59C1002F6C8F /* MyPillUITests */,
+				F828E16E2F6A5B7300C95259 /* MyPillWidgetExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F828E16D2F6A5B7300C95259 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8E217AD2E4B59BF002F6C8F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8E217BA2E4B59C1002F6C8F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8E217C42E4B59C1002F6C8F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		34200F6039758822DA91E6E5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyPill-MyPillUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8E80C8FF98DF3E53D5B2E7D9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyPill-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9DB8D4763FA578E9C6CC592F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyPillTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F828E16B2F6A5B7300C95259 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8E217AB2E4B59BF002F6C8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8E217B82E4B59C1002F6C8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8E217C22E4B59C1002F6C8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F828E1832F6A5B7500C95259 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F828E16E2F6A5B7300C95259 /* MyPillWidgetExtension */;
+			targetProxy = F828E1822F6A5B7500C95259 /* PBXContainerItemProxy */;
+		};
+		F8E217BE2E4B59C1002F6C8F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F8E217AE2E4B59BF002F6C8F /* MyPill */;
+			targetProxy = F8E217BD2E4B59C1002F6C8F /* PBXContainerItemProxy */;
+		};
+		F8E217C82E4B59C1002F6C8F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F8E217AE2E4B59BF002F6C8F /* MyPill */;
+			targetProxy = F8E217C72E4B59C1002F6C8F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F828E1862F6A5B7500C95259 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = MyPillWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 452H92CGNL;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MyPillWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MyPillWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.younsu.park.MyPill.MyPillWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F828E1872F6A5B7500C95259 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = MyPillWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 452H92CGNL;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MyPillWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MyPillWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.younsu.park.MyPill.MyPillWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F8E217CE2E4B59C1002F6C8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F8E217CF2E4B59C1002F6C8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F8E217D12E4B59C1002F6C8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44AD4FE9079059BF37DE9500 /* Pods-MyPill.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MyPill/MyPill.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 452H92CGNL;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MyPill/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.younsu.park.MyPill;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F8E217D22E4B59C1002F6C8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF469DD7343ED20A59AA6B86 /* Pods-MyPill.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MyPill/MyPill.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 452H92CGNL;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MyPill/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.younsu.park.MyPill;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F8E217D42E4B59C1002F6C8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69D1FE3042D561AF4485281A /* Pods-MyPillTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.younsu.park.MyPillTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyPill.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MyPill";
+			};
+			name = Debug;
+		};
+		F8E217D52E4B59C1002F6C8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87DCA76CCBB99D17D38D76EF /* Pods-MyPillTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.younsu.park.MyPillTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyPill.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MyPill";
+			};
+			name = Release;
+		};
+		F8E217D72E4B59C1002F6C8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9A391A133C0848C447A9662 /* Pods-MyPill-MyPillUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.younsu.park.MyPillUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MyPill;
+			};
+			name = Debug;
+		};
+		F8E217D82E4B59C1002F6C8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED571B0A70A85BB3CDDB3E50 /* Pods-MyPill-MyPillUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.younsu.park.MyPillUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MyPill;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F828E1852F6A5B7500C95259 /* Build configuration list for PBXNativeTarget "MyPillWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F828E1862F6A5B7500C95259 /* Debug */,
+				F828E1872F6A5B7500C95259 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F8E217AA2E4B59BF002F6C8F /* Build configuration list for PBXProject "MyPill" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8E217CE2E4B59C1002F6C8F /* Debug */,
+				F8E217CF2E4B59C1002F6C8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F8E217D02E4B59C1002F6C8F /* Build configuration list for PBXNativeTarget "MyPill" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8E217D12E4B59C1002F6C8F /* Debug */,
+				F8E217D22E4B59C1002F6C8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F8E217D32E4B59C1002F6C8F /* Build configuration list for PBXNativeTarget "MyPillTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8E217D42E4B59C1002F6C8F /* Debug */,
+				F8E217D52E4B59C1002F6C8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F8E217D62E4B59C1002F6C8F /* Build configuration list for PBXNativeTarget "MyPillUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8E217D72E4B59C1002F6C8F /* Debug */,
+				F8E217D82E4B59C1002F6C8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F8A006B22E531EDA008D94DD /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		F8E218132E4B60FD002F6C8F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F8A006F52E53256B008D94DD /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F8A006B22E531EDA008D94DD /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		F8A006F72E53256B008D94DD /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F8A006B22E531EDA008D94DD /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+		F8E218142E4B60FD002F6C8F /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F8E218132E4B60FD002F6C8F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		F8E218162E4B60FD002F6C8F /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F8E218132E4B60FD002F6C8F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = F8E217A72E4B59BF002F6C8F /* Project object */;
+}
