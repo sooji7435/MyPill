@@ -56,7 +56,6 @@
 		F8EC21C72F86203E00A25135 /* MyPillUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21C52F86203E00A25135 /* MyPillUITestsLaunchTests.swift */; };
 		F8EC21C82F86203E00A25135 /* MyPillUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21C42F86203E00A25135 /* MyPillUITests.swift */; };
 		F8EC21D12F86205900A25135 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8EC21CA2F86205900A25135 /* Assets.xcassets */; };
-		F8EC21D22F86205900A25135 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8EC21CB2F86205900A25135 /* Info.plist */; };
 		F8EC21D32F86205900A25135 /* MyPillWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21CD2F86205900A25135 /* MyPillWidgetBundle.swift */; };
 		F8EC21D42F86205900A25135 /* MyPillWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21CF2F86205900A25135 /* MyPillWidgetLiveActivity.swift */; };
 		F8EC21D52F86205900A25135 /* MyPillWidgetControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21CE2F86205900A25135 /* MyPillWidgetControl.swift */; };
@@ -160,7 +159,6 @@
 		F8EC21C52F86203E00A25135 /* MyPillUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPillUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F8EC21C92F86205900A25135 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
 		F8EC21CA2F86205900A25135 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F8EC21CB2F86205900A25135 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8EC21CC2F86205900A25135 /* MyPillWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPillWidget.swift; sourceTree = "<group>"; };
 		F8EC21CD2F86205900A25135 /* MyPillWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPillWidgetBundle.swift; sourceTree = "<group>"; };
 		F8EC21CE2F86205900A25135 /* MyPillWidgetControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPillWidgetControl.swift; sourceTree = "<group>"; };
@@ -420,7 +418,6 @@
 			children = (
 				F8EC21C92F86205900A25135 /* AppIntent.swift */,
 				F8EC21CA2F86205900A25135 /* Assets.xcassets */,
-				F8EC21CB2F86205900A25135 /* Info.plist */,
 				F8EC21CC2F86205900A25135 /* MyPillWidget.swift */,
 				F8EC21CD2F86205900A25135 /* MyPillWidgetBundle.swift */,
 				F8EC21CE2F86205900A25135 /* MyPillWidgetControl.swift */,
@@ -571,7 +568,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8EC21D12F86205900A25135 /* Assets.xcassets in Resources */,
-				F8EC21D22F86205900A25135 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
