@@ -5,7 +5,6 @@
 
 import SwiftUI
 import FirebaseCore
-import GoogleSignIn
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(
@@ -21,26 +20,18 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct MyPillApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
-    @StateObject private var authViewModel      = AuthViewModel()
     @StateObject private var schedulesViewModel = SchedulesViewModel()
     @StateObject private var calendarViewModel  = CalendarViewModel()
-    @StateObject private var googleViewModel    = GoogleOAuthViewModel()
 
     var body: some Scene {
         WindowGroup {
             MainTabView()
-                .environmentObject(authViewModel)
                 .environmentObject(schedulesViewModel)
                 .environmentObject(calendarViewModel)
-                .environmentObject(googleViewModel)
                 .onAppear {
-                    googleViewModel.authViewModel = authViewModel
-                    googleViewModel.restoreSession()
                     NotificationManager.shared.requestPermission()
                 }
-                .onOpenURL { url in
-                    GIDSignIn.sharedInstance.handle(url)
-                }
+
         }
     }
 }
