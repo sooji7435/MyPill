@@ -16,6 +16,53 @@
 		F8A006F82E53256B008D94DD /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F8A006F72E53256B008D94DD /* GoogleSignInSwift */; };
 		F8E218152E4B60FD002F6C8F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F8E218142E4B60FD002F6C8F /* FirebaseAuth */; };
 		F8E218172E4B60FD002F6C8F /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = F8E218162E4B60FD002F6C8F /* FirebaseCore */; };
+		F8EC219C2F861FEB00A25135 /* MyDisclosureStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21702F861FEB00A25135 /* MyDisclosureStyle.swift */; };
+		F8EC219D2F861FEB00A25135 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC218E2F861FEB00A25135 /* CalendarViewModel.swift */; };
+		F8EC219E2F861FEB00A25135 /* MyPillApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21992F861FEB00A25135 /* MyPillApp.swift */; };
+		F8EC219F2F861FEB00A25135 /* CalendarBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21782F861FEB00A25135 /* CalendarBody.swift */; };
+		F8EC21A02F861FEB00A25135 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21832F861FEB00A25135 /* LoginView.swift */; };
+		F8EC21A12F861FEB00A25135 /* SchedulesIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21872F861FEB00A25135 /* SchedulesIconView.swift */; };
+		F8EC21A22F861FEB00A25135 /* ScheduleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21892F861FEB00A25135 /* ScheduleDetailView.swift */; };
+		F8EC21A32F861FEB00A25135 /* CalendarHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21792F861FEB00A25135 /* CalendarHeader.swift */; };
+		F8EC21A42F861FEB00A25135 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC217A2F861FEB00A25135 /* CalendarView.swift */; };
+		F8EC21A52F861FEB00A25135 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21712F861FEB00A25135 /* NotificationManager.swift */; };
+		F8EC21A62F861FEB00A25135 /* StatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21912F861FEB00A25135 /* StatsViewModel.swift */; };
+		F8EC21A72F861FEB00A25135 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC217F2F861FEB00A25135 /* MainTabView.swift */; };
+		F8EC21A82F861FEB00A25135 /* MyMedicine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21852F861FEB00A25135 /* MyMedicine.swift */; };
+		F8EC21A92F861FEB00A25135 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC217D2F861FEB00A25135 /* ContentView.swift */; };
+		F8EC21AA2F861FEB00A25135 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21762F861FEB00A25135 /* SettingsView.swift */; };
+		F8EC21AB2F861FEB00A25135 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC218D2F861FEB00A25135 /* AuthViewModel.swift */; };
+		F8EC21AC2F861FEB00A25135 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC216F2F861FEB00A25135 /* ColorManager.swift */; };
+		F8EC21AD2F861FEB00A25135 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21742F861FEB00A25135 /* User.swift */; };
+		F8EC21AE2F861FEB00A25135 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21732F861FEB00A25135 /* Schedule.swift */; };
+		F8EC21AF2F861FEB00A25135 /* TextHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21812F861FEB00A25135 /* TextHeader.swift */; };
+		F8EC21B02F861FEB00A25135 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC217E2F861FEB00A25135 /* HomeView.swift */; };
+		F8EC21B12F861FEB00A25135 /* CalendarYearMonth.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC217B2F861FEB00A25135 /* CalendarYearMonth.swift */; };
+		F8EC21B22F861FEB00A25135 /* SharedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21932F861FEB00A25135 /* SharedStore.swift */; };
+		F8EC21B32F861FEB00A25135 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21802F861FEB00A25135 /* StatsView.swift */; };
+		F8EC21B42F861FEB00A25135 /* GoogleOAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC218F2F861FEB00A25135 /* GoogleOAuthViewModel.swift */; };
+		F8EC21B52F861FEB00A25135 /* SchedulesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21902F861FEB00A25135 /* SchedulesViewModel.swift */; };
+		F8EC21B62F861FEB00A25135 /* ScheduleAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21862F861FEB00A25135 /* ScheduleAddView.swift */; };
+		F8EC21B72F861FEB00A25135 /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC218A2F861FEB00A25135 /* TimelineView.swift */; };
+		F8EC21B82F861FEB00A25135 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8EC21952F861FEB00A25135 /* Assets.xcassets */; };
+		F8EC21B92F861FEB00A25135 /* BMJUA.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8EC216C2F861FEB00A25135 /* BMJUA.ttf */; };
+		F8EC21BA2F861FEB00A25135 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F8EC219A2F861FEB00A25135 /* README.md */; };
+		F8EC21BB2F861FEB00A25135 /* 나눔손글씨 맛있는체.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8EC216A2F861FEB00A25135 /* 나눔손글씨 맛있는체.ttf */; };
+		F8EC21BC2F861FEB00A25135 /* Cafe24Dongdong.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8EC216D2F861FEB00A25135 /* Cafe24Dongdong.ttf */; };
+		F8EC21BD2F861FEB00A25135 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8EC21962F861FEB00A25135 /* GoogleService-Info.plist */; };
+		F8EC21BE2F861FEB00A25135 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8EC21972F861FEB00A25135 /* Info.plist */; };
+		F8EC21BF2F861FEB00A25135 /* 나눔손글씨 꽃내음.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8EC21692F861FEB00A25135 /* 나눔손글씨 꽃내음.ttf */; };
+		F8EC21C02F861FEB00A25135 /* BMJA.otf in Resources */ = {isa = PBXBuildFile; fileRef = F8EC216B2F861FEB00A25135 /* BMJA.otf */; };
+		F8EC21C32F86202600A25135 /* MyPillTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21C12F86202600A25135 /* MyPillTests.swift */; };
+		F8EC21C72F86203E00A25135 /* MyPillUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21C52F86203E00A25135 /* MyPillUITestsLaunchTests.swift */; };
+		F8EC21C82F86203E00A25135 /* MyPillUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21C42F86203E00A25135 /* MyPillUITests.swift */; };
+		F8EC21D12F86205900A25135 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8EC21CA2F86205900A25135 /* Assets.xcassets */; };
+		F8EC21D22F86205900A25135 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8EC21CB2F86205900A25135 /* Info.plist */; };
+		F8EC21D32F86205900A25135 /* MyPillWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21CD2F86205900A25135 /* MyPillWidgetBundle.swift */; };
+		F8EC21D42F86205900A25135 /* MyPillWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21CF2F86205900A25135 /* MyPillWidgetLiveActivity.swift */; };
+		F8EC21D52F86205900A25135 /* MyPillWidgetControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21CE2F86205900A25135 /* MyPillWidgetControl.swift */; };
+		F8EC21D62F86205900A25135 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21C92F86205900A25135 /* AppIntent.swift */; };
+		F8EC21D72F86205900A25135 /* MyPillWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21CC2F86205900A25135 /* MyPillWidget.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,64 +118,56 @@
 		F8E217AF2E4B59BF002F6C8F /* MyPill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPill.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E217BC2E4B59C1002F6C8F /* MyPillTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyPillTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E217C62E4B59C1002F6C8F /* MyPillUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyPillUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8EC21692F861FEB00A25135 /* 나눔손글씨 꽃내음.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "나눔손글씨 꽃내음.ttf"; sourceTree = "<group>"; };
+		F8EC216A2F861FEB00A25135 /* 나눔손글씨 맛있는체.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "나눔손글씨 맛있는체.ttf"; sourceTree = "<group>"; };
+		F8EC216B2F861FEB00A25135 /* BMJA.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BMJA.otf; sourceTree = "<group>"; };
+		F8EC216C2F861FEB00A25135 /* BMJUA.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BMJUA.ttf; sourceTree = "<group>"; };
+		F8EC216D2F861FEB00A25135 /* Cafe24Dongdong.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Cafe24Dongdong.ttf; sourceTree = "<group>"; };
+		F8EC216F2F861FEB00A25135 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
+		F8EC21702F861FEB00A25135 /* MyDisclosureStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDisclosureStyle.swift; sourceTree = "<group>"; };
+		F8EC21712F861FEB00A25135 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		F8EC21732F861FEB00A25135 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		F8EC21742F861FEB00A25135 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F8EC21762F861FEB00A25135 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		F8EC21782F861FEB00A25135 /* CalendarBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarBody.swift; sourceTree = "<group>"; };
+		F8EC21792F861FEB00A25135 /* CalendarHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeader.swift; sourceTree = "<group>"; };
+		F8EC217A2F861FEB00A25135 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		F8EC217B2F861FEB00A25135 /* CalendarYearMonth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarYearMonth.swift; sourceTree = "<group>"; };
+		F8EC217D2F861FEB00A25135 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F8EC217E2F861FEB00A25135 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		F8EC217F2F861FEB00A25135 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		F8EC21802F861FEB00A25135 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
+		F8EC21812F861FEB00A25135 /* TextHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextHeader.swift; sourceTree = "<group>"; };
+		F8EC21832F861FEB00A25135 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		F8EC21852F861FEB00A25135 /* MyMedicine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMedicine.swift; sourceTree = "<group>"; };
+		F8EC21862F861FEB00A25135 /* ScheduleAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleAddView.swift; sourceTree = "<group>"; };
+		F8EC21872F861FEB00A25135 /* SchedulesIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulesIconView.swift; sourceTree = "<group>"; };
+		F8EC21892F861FEB00A25135 /* ScheduleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDetailView.swift; sourceTree = "<group>"; };
+		F8EC218A2F861FEB00A25135 /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
+		F8EC218D2F861FEB00A25135 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		F8EC218E2F861FEB00A25135 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
+		F8EC218F2F861FEB00A25135 /* GoogleOAuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleOAuthViewModel.swift; sourceTree = "<group>"; };
+		F8EC21902F861FEB00A25135 /* SchedulesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulesViewModel.swift; sourceTree = "<group>"; };
+		F8EC21912F861FEB00A25135 /* StatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewModel.swift; sourceTree = "<group>"; };
+		F8EC21932F861FEB00A25135 /* SharedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedStore.swift; sourceTree = "<group>"; };
+		F8EC21952F861FEB00A25135 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F8EC21962F861FEB00A25135 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F8EC21972F861FEB00A25135 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F8EC21982F861FEB00A25135 /* MyPill.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyPill.entitlements; sourceTree = "<group>"; };
+		F8EC21992F861FEB00A25135 /* MyPillApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPillApp.swift; sourceTree = "<group>"; };
+		F8EC219A2F861FEB00A25135 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F8EC21C12F86202600A25135 /* MyPillTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPillTests.swift; sourceTree = "<group>"; };
+		F8EC21C42F86203E00A25135 /* MyPillUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPillUITests.swift; sourceTree = "<group>"; };
+		F8EC21C52F86203E00A25135 /* MyPillUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPillUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F8EC21C92F86205900A25135 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		F8EC21CA2F86205900A25135 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F8EC21CB2F86205900A25135 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8EC21CC2F86205900A25135 /* MyPillWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPillWidget.swift; sourceTree = "<group>"; };
+		F8EC21CD2F86205900A25135 /* MyPillWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPillWidgetBundle.swift; sourceTree = "<group>"; };
+		F8EC21CE2F86205900A25135 /* MyPillWidgetControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPillWidgetControl.swift; sourceTree = "<group>"; };
+		F8EC21CF2F86205900A25135 /* MyPillWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPillWidgetLiveActivity.swift; sourceTree = "<group>"; };
 		FF469DD7343ED20A59AA6B86 /* Pods-MyPill.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyPill.release.xcconfig"; path = "Target Support Files/Pods-MyPill/Pods-MyPill.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		F89BB18F2F76CD340035AA82 /* Exceptions for "MyPill" folder in "MyPill" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = F8E217AE2E4B59BF002F6C8F /* MyPill */;
-		};
-		F89BB1902F76CDEA0035AA82 /* Exceptions for "MyPillWidget" folder in "MyPillWidgetExtension" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = F828E16E2F6A5B7300C95259 /* MyPillWidgetExtension */;
-		};
-		F89BB1922F76CE280035AA82 /* Exceptions for "MyPill" folder in "MyPillWidgetExtension" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Manager/ColorManager.swift,
-				Model/Schedule.swift,
-				Widget/SharedStore.swift,
-			);
-			target = F828E16E2F6A5B7300C95259 /* MyPillWidgetExtension */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		F828E1742F6A5B7300C95259 /* MyPillWidget */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				F89BB1902F76CDEA0035AA82 /* Exceptions for "MyPillWidget" folder in "MyPillWidgetExtension" target */,
-			);
-			path = MyPillWidget;
-			sourceTree = "<group>";
-		};
-		F8E217B12E4B59BF002F6C8F /* MyPill */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				F89BB18F2F76CD340035AA82 /* Exceptions for "MyPill" folder in "MyPill" target */,
-				F89BB1922F76CE280035AA82 /* Exceptions for "MyPill" folder in "MyPillWidgetExtension" target */,
-			);
-			path = MyPill;
-			sourceTree = "<group>";
-		};
-		F8E217BF2E4B59C1002F6C8F /* MyPillTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MyPillTests;
-			sourceTree = "<group>";
-		};
-		F8E217C92E4B59C1002F6C8F /* MyPillUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MyPillUITests;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		F828E16C2F6A5B7300C95259 /* Frameworks */ = {
@@ -198,10 +237,10 @@
 		F8E217A62E4B59BF002F6C8F = {
 			isa = PBXGroup;
 			children = (
-				F8E217B12E4B59BF002F6C8F /* MyPill */,
-				F8E217BF2E4B59C1002F6C8F /* MyPillTests */,
-				F8E217C92E4B59C1002F6C8F /* MyPillUITests */,
-				F828E1742F6A5B7300C95259 /* MyPillWidget */,
+				F8EC219B2F861FEB00A25135 /* MyPill */,
+				F8EC21D02F86205900A25135 /* MyPillWidget */,
+				F8EC21C22F86202600A25135 /* MyPillTests */,
+				F8EC21C62F86203E00A25135 /* MyPillUITests */,
 				F8E217B02E4B59BF002F6C8F /* Products */,
 				6DCDC5944F04D011A8B6D822 /* Pods */,
 				99FEC8BE86DA3530D0628846 /* Frameworks */,
@@ -219,6 +258,178 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		F8EC216E2F861FEB00A25135 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				F8EC21692F861FEB00A25135 /* 나눔손글씨 꽃내음.ttf */,
+				F8EC216A2F861FEB00A25135 /* 나눔손글씨 맛있는체.ttf */,
+				F8EC216B2F861FEB00A25135 /* BMJA.otf */,
+				F8EC216C2F861FEB00A25135 /* BMJUA.ttf */,
+				F8EC216D2F861FEB00A25135 /* Cafe24Dongdong.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		F8EC21722F861FEB00A25135 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				F8EC216F2F861FEB00A25135 /* ColorManager.swift */,
+				F8EC21702F861FEB00A25135 /* MyDisclosureStyle.swift */,
+				F8EC21712F861FEB00A25135 /* NotificationManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		F8EC21752F861FEB00A25135 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F8EC21732F861FEB00A25135 /* Schedule.swift */,
+				F8EC21742F861FEB00A25135 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F8EC21772F861FEB00A25135 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				F8EC21762F861FEB00A25135 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		F8EC217C2F861FEB00A25135 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				F8EC21782F861FEB00A25135 /* CalendarBody.swift */,
+				F8EC21792F861FEB00A25135 /* CalendarHeader.swift */,
+				F8EC217A2F861FEB00A25135 /* CalendarView.swift */,
+				F8EC217B2F861FEB00A25135 /* CalendarYearMonth.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		F8EC21822F861FEB00A25135 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F8EC217D2F861FEB00A25135 /* ContentView.swift */,
+				F8EC217E2F861FEB00A25135 /* HomeView.swift */,
+				F8EC217F2F861FEB00A25135 /* MainTabView.swift */,
+				F8EC21802F861FEB00A25135 /* StatsView.swift */,
+				F8EC21812F861FEB00A25135 /* TextHeader.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F8EC21842F861FEB00A25135 /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				F8EC21832F861FEB00A25135 /* LoginView.swift */,
+			);
+			path = LogIn;
+			sourceTree = "<group>";
+		};
+		F8EC21882F861FEB00A25135 /* MyMedicines */ = {
+			isa = PBXGroup;
+			children = (
+				F8EC21852F861FEB00A25135 /* MyMedicine.swift */,
+				F8EC21862F861FEB00A25135 /* ScheduleAddView.swift */,
+				F8EC21872F861FEB00A25135 /* SchedulesIconView.swift */,
+			);
+			path = MyMedicines;
+			sourceTree = "<group>";
+		};
+		F8EC218B2F861FEB00A25135 /* Schedules */ = {
+			isa = PBXGroup;
+			children = (
+				F8EC21892F861FEB00A25135 /* ScheduleDetailView.swift */,
+				F8EC218A2F861FEB00A25135 /* TimelineView.swift */,
+			);
+			path = Schedules;
+			sourceTree = "<group>";
+		};
+		F8EC218C2F861FEB00A25135 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F8EC217C2F861FEB00A25135 /* Calendar */,
+				F8EC21822F861FEB00A25135 /* Home */,
+				F8EC21842F861FEB00A25135 /* LogIn */,
+				F8EC21882F861FEB00A25135 /* MyMedicines */,
+				F8EC218B2F861FEB00A25135 /* Schedules */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F8EC21922F861FEB00A25135 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F8EC218D2F861FEB00A25135 /* AuthViewModel.swift */,
+				F8EC218E2F861FEB00A25135 /* CalendarViewModel.swift */,
+				F8EC218F2F861FEB00A25135 /* GoogleOAuthViewModel.swift */,
+				F8EC21902F861FEB00A25135 /* SchedulesViewModel.swift */,
+				F8EC21912F861FEB00A25135 /* StatsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F8EC21942F861FEB00A25135 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				F8EC21932F861FEB00A25135 /* SharedStore.swift */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
+		F8EC219B2F861FEB00A25135 /* MyPill */ = {
+			isa = PBXGroup;
+			children = (
+				F8EC21722F861FEB00A25135 /* Manager */,
+				F8EC21752F861FEB00A25135 /* Model */,
+				F8EC21772F861FEB00A25135 /* Settings */,
+				F8EC218C2F861FEB00A25135 /* View */,
+				F8EC21922F861FEB00A25135 /* ViewModel */,
+				F8EC21942F861FEB00A25135 /* Widget */,
+				F8EC21952F861FEB00A25135 /* Assets.xcassets */,
+				F8EC21962F861FEB00A25135 /* GoogleService-Info.plist */,
+				F8EC21972F861FEB00A25135 /* Info.plist */,
+				F8EC21982F861FEB00A25135 /* MyPill.entitlements */,
+				F8EC21992F861FEB00A25135 /* MyPillApp.swift */,
+				F8EC219A2F861FEB00A25135 /* README.md */,
+				F8EC216E2F861FEB00A25135 /* Font */,
+			);
+			path = MyPill;
+			sourceTree = "<group>";
+		};
+		F8EC21C22F86202600A25135 /* MyPillTests */ = {
+			isa = PBXGroup;
+			children = (
+				F8EC21C12F86202600A25135 /* MyPillTests.swift */,
+			);
+			path = MyPillTests;
+			sourceTree = "<group>";
+		};
+		F8EC21C62F86203E00A25135 /* MyPillUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F8EC21C42F86203E00A25135 /* MyPillUITests.swift */,
+				F8EC21C52F86203E00A25135 /* MyPillUITestsLaunchTests.swift */,
+			);
+			path = MyPillUITests;
+			sourceTree = "<group>";
+		};
+		F8EC21D02F86205900A25135 /* MyPillWidget */ = {
+			isa = PBXGroup;
+			children = (
+				F8EC21C92F86205900A25135 /* AppIntent.swift */,
+				F8EC21CA2F86205900A25135 /* Assets.xcassets */,
+				F8EC21CB2F86205900A25135 /* Info.plist */,
+				F8EC21CC2F86205900A25135 /* MyPillWidget.swift */,
+				F8EC21CD2F86205900A25135 /* MyPillWidgetBundle.swift */,
+				F8EC21CE2F86205900A25135 /* MyPillWidgetControl.swift */,
+				F8EC21CF2F86205900A25135 /* MyPillWidgetLiveActivity.swift */,
+			);
+			path = MyPillWidget;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -233,9 +444,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				F828E1742F6A5B7300C95259 /* MyPillWidget */,
 			);
 			name = MyPillWidgetExtension;
 			productName = MyPillWidgetExtension;
@@ -256,9 +464,6 @@
 			);
 			dependencies = (
 				F828E1832F6A5B7500C95259 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				F8E217B12E4B59BF002F6C8F /* MyPill */,
 			);
 			name = MyPill;
 			packageProductDependencies = (
@@ -285,9 +490,6 @@
 			dependencies = (
 				F8E217BE2E4B59C1002F6C8F /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				F8E217BF2E4B59C1002F6C8F /* MyPillTests */,
-			);
 			name = MyPillTests;
 			productName = MyPillTests;
 			productReference = F8E217BC2E4B59C1002F6C8F /* MyPillTests.xctest */;
@@ -306,9 +508,6 @@
 			);
 			dependencies = (
 				F8E217C82E4B59C1002F6C8F /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				F8E217C92E4B59C1002F6C8F /* MyPillUITests */,
 			);
 			name = MyPillUITests;
 			productName = MyPillUITests;
@@ -372,6 +571,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8EC21D12F86205900A25135 /* Assets.xcassets in Resources */,
+				F8EC21D22F86205900A25135 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +580,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8EC21B82F861FEB00A25135 /* Assets.xcassets in Resources */,
+				F8EC21B92F861FEB00A25135 /* BMJUA.ttf in Resources */,
+				F8EC21BA2F861FEB00A25135 /* README.md in Resources */,
+				F8EC21BB2F861FEB00A25135 /* 나눔손글씨 맛있는체.ttf in Resources */,
+				F8EC21BC2F861FEB00A25135 /* Cafe24Dongdong.ttf in Resources */,
+				F8EC21BD2F861FEB00A25135 /* GoogleService-Info.plist in Resources */,
+				F8EC21BE2F861FEB00A25135 /* Info.plist in Resources */,
+				F8EC21BF2F861FEB00A25135 /* 나눔손글씨 꽃내음.ttf in Resources */,
+				F8EC21C02F861FEB00A25135 /* BMJA.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,6 +682,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8EC21D32F86205900A25135 /* MyPillWidgetBundle.swift in Sources */,
+				F8EC21D42F86205900A25135 /* MyPillWidgetLiveActivity.swift in Sources */,
+				F8EC21D52F86205900A25135 /* MyPillWidgetControl.swift in Sources */,
+				F8EC21D62F86205900A25135 /* AppIntent.swift in Sources */,
+				F8EC21D72F86205900A25135 /* MyPillWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,6 +694,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8EC219C2F861FEB00A25135 /* MyDisclosureStyle.swift in Sources */,
+				F8EC219D2F861FEB00A25135 /* CalendarViewModel.swift in Sources */,
+				F8EC219E2F861FEB00A25135 /* MyPillApp.swift in Sources */,
+				F8EC219F2F861FEB00A25135 /* CalendarBody.swift in Sources */,
+				F8EC21A02F861FEB00A25135 /* LoginView.swift in Sources */,
+				F8EC21A12F861FEB00A25135 /* SchedulesIconView.swift in Sources */,
+				F8EC21A22F861FEB00A25135 /* ScheduleDetailView.swift in Sources */,
+				F8EC21A32F861FEB00A25135 /* CalendarHeader.swift in Sources */,
+				F8EC21A42F861FEB00A25135 /* CalendarView.swift in Sources */,
+				F8EC21A52F861FEB00A25135 /* NotificationManager.swift in Sources */,
+				F8EC21A62F861FEB00A25135 /* StatsViewModel.swift in Sources */,
+				F8EC21A72F861FEB00A25135 /* MainTabView.swift in Sources */,
+				F8EC21A82F861FEB00A25135 /* MyMedicine.swift in Sources */,
+				F8EC21A92F861FEB00A25135 /* ContentView.swift in Sources */,
+				F8EC21AA2F861FEB00A25135 /* SettingsView.swift in Sources */,
+				F8EC21AB2F861FEB00A25135 /* AuthViewModel.swift in Sources */,
+				F8EC21AC2F861FEB00A25135 /* ColorManager.swift in Sources */,
+				F8EC21AD2F861FEB00A25135 /* User.swift in Sources */,
+				F8EC21AE2F861FEB00A25135 /* Schedule.swift in Sources */,
+				F8EC21AF2F861FEB00A25135 /* TextHeader.swift in Sources */,
+				F8EC21B02F861FEB00A25135 /* HomeView.swift in Sources */,
+				F8EC21B12F861FEB00A25135 /* CalendarYearMonth.swift in Sources */,
+				F8EC21B22F861FEB00A25135 /* SharedStore.swift in Sources */,
+				F8EC21B32F861FEB00A25135 /* StatsView.swift in Sources */,
+				F8EC21B42F861FEB00A25135 /* GoogleOAuthViewModel.swift in Sources */,
+				F8EC21B52F861FEB00A25135 /* SchedulesViewModel.swift in Sources */,
+				F8EC21B62F861FEB00A25135 /* ScheduleAddView.swift in Sources */,
+				F8EC21B72F861FEB00A25135 /* TimelineView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +729,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8EC21C32F86202600A25135 /* MyPillTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,6 +737,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8EC21C72F86203E00A25135 /* MyPillUITestsLaunchTests.swift in Sources */,
+				F8EC21C82F86203E00A25135 /* MyPillUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
