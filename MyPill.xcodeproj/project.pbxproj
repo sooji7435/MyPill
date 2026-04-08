@@ -57,21 +57,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		44AD4FE9079059BF37DE9500 /* Pods-MyPill.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyPill.debug.xcconfig"; path = "Target Support Files/Pods-MyPill/Pods-MyPill.debug.xcconfig"; sourceTree = "<group>"; };
-		69D1FE3042D561AF4485281A /* Pods-MyPillTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyPillTests.debug.xcconfig"; path = "Target Support Files/Pods-MyPillTests/Pods-MyPillTests.debug.xcconfig"; sourceTree = "<group>"; };
-		87DCA76CCBB99D17D38D76EF /* Pods-MyPillTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyPillTests.release.xcconfig"; path = "Target Support Files/Pods-MyPillTests/Pods-MyPillTests.release.xcconfig"; sourceTree = "<group>"; };
 		8AC12735C36658A5EF45919D /* Pods_MyPill_MyPillUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyPill_MyPillUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93200F6668E2DB86CBFDD3B0 /* Pods_MyPill.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyPill.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C1A1B4C1FB64E37903F27FA /* Pods_MyPillTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyPillTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E9A391A133C0848C447A9662 /* Pods-MyPill-MyPillUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyPill-MyPillUITests.debug.xcconfig"; path = "Target Support Files/Pods-MyPill-MyPillUITests/Pods-MyPill-MyPillUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		ED571B0A70A85BB3CDDB3E50 /* Pods-MyPill-MyPillUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyPill-MyPillUITests.release.xcconfig"; path = "Target Support Files/Pods-MyPill-MyPillUITests/Pods-MyPill-MyPillUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F828E16F2F6A5B7300C95259 /* MyPillWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MyPillWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F828E1702F6A5B7300C95259 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		F828E1722F6A5B7300C95259 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		F8E217AF2E4B59BF002F6C8F /* MyPill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPill.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E217BC2E4B59C1002F6C8F /* MyPillTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyPillTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E217C62E4B59C1002F6C8F /* MyPillUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyPillUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FF469DD7343ED20A59AA6B86 /* Pods-MyPill.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyPill.release.xcconfig"; path = "Target Support Files/Pods-MyPill/Pods-MyPill.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -170,19 +164,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6DCDC5944F04D011A8B6D822 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				44AD4FE9079059BF37DE9500 /* Pods-MyPill.debug.xcconfig */,
-				FF469DD7343ED20A59AA6B86 /* Pods-MyPill.release.xcconfig */,
-				E9A391A133C0848C447A9662 /* Pods-MyPill-MyPillUITests.debug.xcconfig */,
-				ED571B0A70A85BB3CDDB3E50 /* Pods-MyPill-MyPillUITests.release.xcconfig */,
-				69D1FE3042D561AF4485281A /* Pods-MyPillTests.debug.xcconfig */,
-				87DCA76CCBB99D17D38D76EF /* Pods-MyPillTests.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		99FEC8BE86DA3530D0628846 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,7 +184,6 @@
 				F8E217C92E4B59C1002F6C8F /* MyPillUITests */,
 				F828E1742F6A5B7300C95259 /* MyPillWidget */,
 				F8E217B02E4B59BF002F6C8F /* Products */,
-				6DCDC5944F04D011A8B6D822 /* Pods */,
 				99FEC8BE86DA3530D0628846 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -246,7 +226,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F8E217D02E4B59C1002F6C8F /* Build configuration list for PBXNativeTarget "MyPill" */;
 			buildPhases = (
-				8E80C8FF98DF3E53D5B2E7D9 /* [CP] Check Pods Manifest.lock */,
 				F8E217AB2E4B59BF002F6C8F /* Sources */,
 				F8E217AC2E4B59BF002F6C8F /* Frameworks */,
 				F8E217AD2E4B59BF002F6C8F /* Resources */,
@@ -415,28 +394,6 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-MyPill-MyPillUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8E80C8FF98DF3E53D5B2E7D9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MyPill-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -704,7 +661,6 @@
 		};
 		F8E217D12E4B59C1002F6C8F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 44AD4FE9079059BF37DE9500 /* Pods-MyPill.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -734,7 +690,6 @@
 		};
 		F8E217D22E4B59C1002F6C8F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FF469DD7343ED20A59AA6B86 /* Pods-MyPill.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -764,7 +719,6 @@
 		};
 		F8E217D42E4B59C1002F6C8F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 69D1FE3042D561AF4485281A /* Pods-MyPillTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -783,7 +737,6 @@
 		};
 		F8E217D52E4B59C1002F6C8F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 87DCA76CCBB99D17D38D76EF /* Pods-MyPillTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -802,7 +755,6 @@
 		};
 		F8E217D72E4B59C1002F6C8F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E9A391A133C0848C447A9662 /* Pods-MyPill-MyPillUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -819,7 +771,6 @@
 		};
 		F8E217D82E4B59C1002F6C8F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ED571B0A70A85BB3CDDB3E50 /* Pods-MyPill-MyPillUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
