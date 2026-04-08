@@ -34,7 +34,6 @@
 		F8EC21AB2F861FEB00A25135 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC218D2F861FEB00A25135 /* AuthViewModel.swift */; };
 		F8EC21AC2F861FEB00A25135 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC216F2F861FEB00A25135 /* ColorManager.swift */; };
 		F8EC21AD2F861FEB00A25135 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21742F861FEB00A25135 /* User.swift */; };
-		F8EC21AE2F861FEB00A25135 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21732F861FEB00A25135 /* Schedule.swift */; };
 		F8EC21AF2F861FEB00A25135 /* TextHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21812F861FEB00A25135 /* TextHeader.swift */; };
 		F8EC21B02F861FEB00A25135 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC217E2F861FEB00A25135 /* HomeView.swift */; };
 		F8EC21B12F861FEB00A25135 /* CalendarYearMonth.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC217B2F861FEB00A25135 /* CalendarYearMonth.swift */; };
@@ -61,6 +60,10 @@
 		F8EC21D52F86205900A25135 /* MyPillWidgetControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21CE2F86205900A25135 /* MyPillWidgetControl.swift */; };
 		F8EC21D62F86205900A25135 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21C92F86205900A25135 /* AppIntent.swift */; };
 		F8EC21D72F86205900A25135 /* MyPillWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21CC2F86205900A25135 /* MyPillWidget.swift */; };
+		F8EC21D82F86243400A25135 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21732F861FEB00A25135 /* Schedule.swift */; };
+		F8EC21D92F86243900A25135 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21732F861FEB00A25135 /* Schedule.swift */; };
+		F8EC21DA2F86246A00A25135 /* SharedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21932F861FEB00A25135 /* SharedStore.swift */; };
+		F8EC21DB2F86248300A25135 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC216F2F861FEB00A25135 /* ColorManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -676,11 +679,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8EC21DA2F86246A00A25135 /* SharedStore.swift in Sources */,
+				F8EC21D82F86243400A25135 /* Schedule.swift in Sources */,
 				F8EC21D32F86205900A25135 /* MyPillWidgetBundle.swift in Sources */,
 				F8EC21D42F86205900A25135 /* MyPillWidgetLiveActivity.swift in Sources */,
 				F8EC21D52F86205900A25135 /* MyPillWidgetControl.swift in Sources */,
 				F8EC21D62F86205900A25135 /* AppIntent.swift in Sources */,
 				F8EC21D72F86205900A25135 /* MyPillWidget.swift in Sources */,
+				F8EC21DB2F86248300A25135 /* ColorManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -706,7 +712,6 @@
 				F8EC21AB2F861FEB00A25135 /* AuthViewModel.swift in Sources */,
 				F8EC21AC2F861FEB00A25135 /* ColorManager.swift in Sources */,
 				F8EC21AD2F861FEB00A25135 /* User.swift in Sources */,
-				F8EC21AE2F861FEB00A25135 /* Schedule.swift in Sources */,
 				F8EC21AF2F861FEB00A25135 /* TextHeader.swift in Sources */,
 				F8EC21B02F861FEB00A25135 /* HomeView.swift in Sources */,
 				F8EC21B12F861FEB00A25135 /* CalendarYearMonth.swift in Sources */,
@@ -715,6 +720,7 @@
 				F8EC21B42F861FEB00A25135 /* GoogleOAuthViewModel.swift in Sources */,
 				F8EC21B52F861FEB00A25135 /* SchedulesViewModel.swift in Sources */,
 				F8EC21B62F861FEB00A25135 /* ScheduleAddView.swift in Sources */,
+				F8EC21D92F86243900A25135 /* Schedule.swift in Sources */,
 				F8EC21B72F861FEB00A25135 /* TimelineView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
