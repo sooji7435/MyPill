@@ -20,12 +20,15 @@ struct HomeView: View {
                 ScrollView {
                     VStack(spacing: 0) {
                         CalendarView(selectedDate: $selectedDate)
-                            .padding(.horizontal)
+                            .padding()
                         scheduleSection
                     }
                 }
             }
+            .navigationTitle("MyPill")
+
         }
+        
     }
 
     private var scheduleSection: some View {
@@ -48,6 +51,7 @@ struct HomeView: View {
             TimelineView(selectedDate: $selectedDate)
         }
     }
+    
 }
 
 #Preview {

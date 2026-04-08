@@ -47,7 +47,7 @@ struct StatsView: View {
                 }
                 .padding(.vertical)
             }
-            .navigationTitle("복용 통계")
+            .navigationTitle("통계")
             .onAppear { statsVM.calculate(from: schedulesViewModel.schedules) }
             .onChange(of: schedulesViewModel.schedules) { _, new in
                 statsVM.calculate(from: new)
