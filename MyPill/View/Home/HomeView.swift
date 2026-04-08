@@ -20,7 +20,6 @@ struct HomeView: View {
 
                 ScrollView {
                     VStack(spacing: 0) {
-                        TextHeader()
                         CalendarView(selectedDate: $selectedDate)
                             .padding(.horizontal)
                         scheduleSection
