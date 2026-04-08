@@ -28,6 +28,5 @@ struct MainTabView: View {
     MainTabView()
         .environmentObject(SchedulesViewModel())
         .environmentObject(CalendarViewModel())
-        .environmentObject(GoogleOAuthViewModel())
-        .environmentObject(AuthViewModel())
+
 }

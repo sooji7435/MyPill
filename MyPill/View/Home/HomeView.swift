@@ -8,7 +8,6 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject var schedule: SchedulesViewModel
     @EnvironmentObject var calendar: CalendarViewModel
-    @EnvironmentObject var google: GoogleOAuthViewModel
 
     @State private var selectedDate: Date = Date()
 
@@ -55,5 +54,4 @@ struct HomeView: View {
     HomeView()
         .environmentObject(SchedulesViewModel())
         .environmentObject(CalendarViewModel())
-        .environmentObject(GoogleOAuthViewModel())
 }

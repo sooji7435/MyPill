@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1CFFB591A636E2DAA1581F3D /* Pods_MyPill_MyPillUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC12735C36658A5EF45919D /* Pods_MyPill_MyPillUITests.framework */; };
-		C58D0C2506D649A3BB292C16 /* Pods_MyPillTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C1A1B4C1FB64E37903F27FA /* Pods_MyPillTests.framework */; };
 		F828E1712F6A5B7300C95259 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F828E1702F6A5B7300C95259 /* WidgetKit.framework */; };
 		F828E1732F6A5B7300C95259 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F828E1722F6A5B7300C95259 /* SwiftUI.framework */; };
 		F828E1842F6A5B7500C95259 /* MyPillWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F828E16F2F6A5B7300C95259 /* MyPillWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -53,9 +51,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8AC12735C36658A5EF45919D /* Pods_MyPill_MyPillUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyPill_MyPillUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		93200F6668E2DB86CBFDD3B0 /* Pods_MyPill.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyPill.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9C1A1B4C1FB64E37903F27FA /* Pods_MyPillTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyPillTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F828E16F2F6A5B7300C95259 /* MyPillWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MyPillWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F828E1702F6A5B7300C95259 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		F828E1722F6A5B7300C95259 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -141,7 +136,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C58D0C2506D649A3BB292C16 /* Pods_MyPillTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,7 +143,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CFFB591A636E2DAA1581F3D /* Pods_MyPill_MyPillUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,9 +154,6 @@
 			children = (
 				F828E1702F6A5B7300C95259 /* WidgetKit.framework */,
 				F828E1722F6A5B7300C95259 /* SwiftUI.framework */,
-				93200F6668E2DB86CBFDD3B0 /* Pods_MyPill.framework */,
-				8AC12735C36658A5EF45919D /* Pods_MyPill_MyPillUITests.framework */,
-				9C1A1B4C1FB64E37903F27FA /* Pods_MyPillTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
