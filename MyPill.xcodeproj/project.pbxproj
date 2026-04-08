@@ -50,7 +50,6 @@
 		F8EC21BB2F861FEB00A25135 /* 나눔손글씨 맛있는체.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8EC216A2F861FEB00A25135 /* 나눔손글씨 맛있는체.ttf */; };
 		F8EC21BC2F861FEB00A25135 /* Cafe24Dongdong.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8EC216D2F861FEB00A25135 /* Cafe24Dongdong.ttf */; };
 		F8EC21BD2F861FEB00A25135 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8EC21962F861FEB00A25135 /* GoogleService-Info.plist */; };
-		F8EC21BE2F861FEB00A25135 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8EC21972F861FEB00A25135 /* Info.plist */; };
 		F8EC21BF2F861FEB00A25135 /* 나눔손글씨 꽃내음.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8EC21692F861FEB00A25135 /* 나눔손글씨 꽃내음.ttf */; };
 		F8EC21C02F861FEB00A25135 /* BMJA.otf in Resources */ = {isa = PBXBuildFile; fileRef = F8EC216B2F861FEB00A25135 /* BMJA.otf */; };
 		F8EC21C32F86202600A25135 /* MyPillTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC21C12F86202600A25135 /* MyPillTests.swift */; };
@@ -586,7 +585,6 @@
 				F8EC21BB2F861FEB00A25135 /* 나눔손글씨 맛있는체.ttf in Resources */,
 				F8EC21BC2F861FEB00A25135 /* Cafe24Dongdong.ttf in Resources */,
 				F8EC21BD2F861FEB00A25135 /* GoogleService-Info.plist in Resources */,
-				F8EC21BE2F861FEB00A25135 /* Info.plist in Resources */,
 				F8EC21BF2F861FEB00A25135 /* 나눔손글씨 꽃내음.ttf in Resources */,
 				F8EC21C02F861FEB00A25135 /* BMJA.otf in Resources */,
 			);
