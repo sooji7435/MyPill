@@ -28,7 +28,7 @@ struct MyPillApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainTabView()
                 .environmentObject(authViewModel)
                 .environmentObject(schedulesViewModel)
                 .environmentObject(calendarViewModel)
