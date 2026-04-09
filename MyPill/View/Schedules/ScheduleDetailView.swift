@@ -119,3 +119,4 @@ struct ScheduleDetailView: View {
         onUpdate?(schedule)
     }
 }
+

@@ -47,10 +47,7 @@ struct SchedulesIconView: View {
                     )
                 }
             }
-            
-
         }
-        
     }
 }
 

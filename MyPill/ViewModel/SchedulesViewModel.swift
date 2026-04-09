@@ -70,9 +70,13 @@ class SchedulesViewModel: ObservableObject {
     // MARK: - 30분 후로 미루기 (Snooze)
     func snoozeSchedule(_ schedule: Schedule) {
         var snoozed = schedule
+        
+        snoozed.takeTime = Date().addingTimeInterval(30 * 60)
         snoozed.isMissed = false
+        
         updateSchedule(snoozed)
-        NotificationManager.shared.snoozeNotification(for: schedule, minutes: 30)
+        
+        NotificationManager.shared.snoozeNotification(for: snoozed, minutes: 30)
     }
 
     // MARK: - 특정 날짜 일정 조회
