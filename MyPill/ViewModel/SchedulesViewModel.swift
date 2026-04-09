@@ -56,13 +56,15 @@ class SchedulesViewModel: ObservableObject {
     }
 
     // MARK: - 일정 삭제
-    func removeSchedule(id: UUID, on date: Date) {
-        let key = dateKey(from: date)
-        schedules[key]?.removeAll { $0.id == id }
+    func removeSchedule(_ schedule: Schedule) {
+        let key = dateKey(from: schedule.takeTime)
+        schedules[key]?.removeAll { $0.id == schedule.id }
+        
         if schedules[key]?.isEmpty == true {
             schedules.removeValue(forKey: key)
         }
-        NotificationManager.shared.cancelNotification(for: id)
+        
+        NotificationManager.shared.cancelNotification(for: schedule.id)
     }
 
     // MARK: - 30분 후로 미루기 (Snooze)
