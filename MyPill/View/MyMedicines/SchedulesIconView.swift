@@ -8,7 +8,6 @@ import SwiftUI
 struct SchedulesIconView: View {
     @EnvironmentObject var schedule: SchedulesViewModel
     
-    @State var showingAlert: Bool = false
     @State private var selectedItem: Schedule?
 
     private var allSchedules: [Schedule] {
@@ -36,16 +35,15 @@ struct SchedulesIconView: View {
                 .frame(width: 80)
                 .onLongPressGesture {
                     selectedItem = item
-                    showingAlert = true
                 }
                 .alert(item: $selectedItem) { item in
                     Alert(
                         title: Text("삭제하시겠습니까?"),
                         message: Text("삭제된 스케줄은 복구할 수 없습니다."),
                         primaryButton: .destructive(Text("삭제")) {
-                            schedule.removeSchedule(id: item.id, on: item.date)
+                            schedule.removeSchedule(item)
                         },
-                        secondaryButton: .cancel()
+                        secondaryButton: .cancel(Text("취소"))
                     )
                 }
             }
