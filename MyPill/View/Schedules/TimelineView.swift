@@ -29,7 +29,10 @@ struct TimelineView: View {
                 .background(Color.BackGroundColor, in: RoundedRectangle(cornerRadius: 20))
             }
             .animation(.spring(), value: schedule.schedules)
+            .padding(.top)
+
         }
+        
     }
 }
 

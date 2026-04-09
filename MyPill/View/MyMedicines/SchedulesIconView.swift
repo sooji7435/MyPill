@@ -15,7 +15,7 @@ struct SchedulesIconView: View {
     }
 
     var body: some View {
-        HStack(spacing: 16) {
+        HStack(spacing: 12) {
             ForEach(allSchedules) { item in
                 VStack(spacing: 6) {
                     Image(item.iconName)
@@ -24,10 +24,13 @@ struct SchedulesIconView: View {
                         .padding()
                         .background(Color.MainColor.opacity(0.2))
                         .clipShape(Circle())
+                    
                     Text(item.title)
                         .font(.custom("Cafe24Dongdong", size: 24))
                         .lineLimit(1)
+                        .truncationMode(.tail)
                 }
+                .frame(width: 80)
             }
         }
     }
