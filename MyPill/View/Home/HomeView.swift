@@ -38,14 +38,6 @@ struct HomeView: View {
                     .font(.custom("Cafe24Dongdong", size: 30))
                     .padding()
                 Spacer()
-                Button {
-                    // TODO: 전체 보기
-                } label: {
-                    Text("모두보기")
-                        .font(.custom("Cafe24Dongdong", size: 15))
-                        .foregroundStyle(.gray)
-                }
-                .padding(.horizontal)
             }
             MyMedicine()
             TimelineView(selectedDate: $selectedDate)
