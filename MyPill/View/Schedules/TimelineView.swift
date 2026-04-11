@@ -19,17 +19,12 @@ struct TimelineView: View {
                 .padding(.vertical, 32)
         } else {
             ForEach(dailySchedules) { sch in
-                DisclosureGroup(sch.title) {
                     ScheduleDetailView(schedule: sch, onUpdate: schedule.updateSchedule)
-                }
                 .font(.custom("Cafe24Dongdong", size: 30))
                 .foregroundStyle(.black)
                 .disclosureGroupStyle(MyDisclosureStyle())
                 .padding()
-                .background(Color.BackGroundColor, in: RoundedRectangle(cornerRadius: 20))
             }
-            .animation(.spring(), value: schedule.schedules)
-            .padding(.top)
 
         }
         

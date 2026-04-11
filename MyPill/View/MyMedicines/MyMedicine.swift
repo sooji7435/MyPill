@@ -14,7 +14,7 @@ struct MyMedicine: View {
                 addButton
                 SchedulesIconView()
             }
-            .padding(.horizontal)
+            .padding()
         }
     }
 

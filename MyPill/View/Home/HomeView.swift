@@ -18,7 +18,7 @@ struct HomeView: View {
                     .ignoresSafeArea()
 
                 ScrollView {
-                    VStack(spacing: 0) {
+                    VStack() {
                         CalendarView(selectedDate: $selectedDate)
                             .padding()
                         scheduleSection
@@ -36,12 +36,14 @@ struct HomeView: View {
             HStack {
                 Text("내 일정")
                     .font(.custom("Cafe24Dongdong", size: 30))
-                    .padding()
+                    .padding(.horizontal)
                 Spacer()
             }
             MyMedicine()
             TimelineView(selectedDate: $selectedDate)
         }
+        .padding()
+
     }
     
 }
