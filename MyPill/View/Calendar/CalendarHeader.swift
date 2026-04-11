@@ -20,7 +20,7 @@ struct CalendarHeader: View {
                     .foregroundStyle(day == "일" ? Color.MainColor : Color.black)
             }
         }
-        .padding(.vertical)
+        .padding(.horizontal)
     }
 }
 
