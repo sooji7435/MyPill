@@ -52,6 +52,8 @@ struct MyPillWidgetEntryView: View {
             SmallWidgetView(entry: entry)
         case .systemMedium:
             MediumWidgetView(entry: entry)
+        case .systemLarge:
+            LargeWidgetView(entry: entry)
         case .accessoryCircular:
             AccessoryCircularView(entry: entry)
         case .accessoryRectangular:
@@ -146,6 +148,72 @@ struct MediumWidgetView: View {
     }
 }
 
+// MARK: - Large 위젯
+struct LargeWidgetView: View {
+    let entry: PillEntry
+
+    private static let timeFormatter: DateFormatter = {
+        let f = DateFormatter(); f.dateFormat = "a h:mm"; return f
+    }()
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            HStack {
+                Image(systemName: "pills.fill").foregroundStyle(Color.MainColor)
+                Text("MyPill").font(.headline.bold()).foregroundStyle(Color.MainColor)
+                Spacer()
+                Text(Date(), style: .date).font(.caption).foregroundStyle(.secondary)
+            }
+
+            HStack(spacing: 16) {
+                ZStack {
+                    Circle().stroke(Color.gray.opacity(0.15), lineWidth: 10)
+                    Circle()
+                        .trim(from: 0, to: entry.adherenceRate)
+                        .stroke(Color.TintColor, style: StrokeStyle(lineWidth: 10, lineCap: .round))
+                        .rotationEffect(.degrees(-90))
+                    Text("\(Int(entry.adherenceRate * 100))%")
+                        .font(.title3.bold()).foregroundStyle(Color.TintColor)
+                }
+                .frame(width: 80, height: 80)
+
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("오늘 복용률").font(.caption).foregroundStyle(.secondary)
+                    Text("\(entry.schedules.filter { $0.isTaken }.count) / \(entry.schedules.count) 완료")
+                        .font(.subheadline.bold())
+                }
+            }
+
+            Divider()
+
+            Text("오늘 일정").font(.caption.bold()).foregroundStyle(.secondary)
+
+            if entry.schedules.isEmpty {
+                Text("일정 없음").font(.subheadline).foregroundStyle(.secondary)
+            } else {
+                ForEach(entry.schedules.prefix(7)) { sch in
+                    HStack(spacing: 8) {
+                        Image(systemName: sch.isTaken  ? "checkmark.circle.fill" :
+                                          sch.isMissed ? "xmark.circle.fill"     : "circle")
+                            .foregroundStyle(sch.isTaken ? .green : sch.isMissed ? .red : .secondary)
+                            .font(.subheadline)
+                        Text(sch.title).font(.subheadline).lineLimit(1)
+                        Spacer()
+                        Text(Self.timeFormatter.string(from: sch.takeTime))
+                            .font(.caption).foregroundStyle(.secondary)
+                    }
+                    Divider()
+                }
+            }
+
+            Spacer()
+        }
+        .padding()
+        .containerBackground(.background, for: .widget)
+        .widgetURL(URL(string: "mypill://home"))
+    }
+}
+
 // MARK: - 잠금화면 원형 위젯
 struct AccessoryCircularView: View {
     let entry: PillEntry
@@ -203,7 +271,7 @@ struct MyPillWidget: Widget {
         }
         .configurationDisplayName("MyPill 복용 일정")
         .description("오늘 복용할 약과 복용률을 확인하세요.")
-        .supportedFamilies([.systemSmall, .systemMedium, .accessoryCircular, .accessoryRectangular])
+        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge, .accessoryCircular, .accessoryRectangular])
     }
 }
 
@@ -223,6 +291,17 @@ struct MyPillWidget: Widget {
         Schedule(title: "오메가3", iconName: "omega3",    takeTime: Date(),                          isTaken: true),
         Schedule(title: "비타민D", iconName: "vitamin_D", takeTime: Date().addingTimeInterval(3600), isTaken: false),
         Schedule(title: "철분제",  iconName: "pill",      takeTime: Date().addingTimeInterval(7200), isTaken: false)
+    ])
+}
+
+#Preview(as: .systemLarge) {
+    MyPillWidget()
+} timeline: {
+    PillEntry(date: .now, schedules: [
+        Schedule(title: "오메가3",  iconName: "omega3",    takeTime: Date(),                          isTaken: true),
+        Schedule(title: "비타민D",  iconName: "vitamin_D", takeTime: Date().addingTimeInterval(3600), isTaken: false),
+        Schedule(title: "철분제",   iconName: "pill",      takeTime: Date().addingTimeInterval(7200), isTaken: false),
+        Schedule(title: "비타민C",  iconName: "vitamin_C", takeTime: Date().addingTimeInterval(10800),isTaken: false)
     ])
 }
 

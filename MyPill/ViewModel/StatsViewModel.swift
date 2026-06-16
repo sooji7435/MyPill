@@ -18,6 +18,7 @@ struct DayStat: Identifiable {
     }
 }
 
+@MainActor
 class StatsViewModel: ObservableObject {
     @Published var weeklyStats: [DayStat] = []
     @Published var monthlyStats: [DayStat] = []

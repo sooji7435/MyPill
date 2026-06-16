@@ -6,9 +6,11 @@ struct SchedulesIconView: View {
     @State private var selectedItem: Schedule?
 
     private var uniqueMedicines: [Schedule] {
+        let startOfToday = Calendar.current.startOfDay(for: Date())
         var seen = Set<String>()
         return schedule.schedules.values
             .flatMap { $0 }
+            .filter { $0.takeTime >= startOfToday }      // 오늘 이후 일정만
             .sorted { $0.takeTime < $1.takeTime }
             .filter { seen.insert("\($0.title)_\($0.iconName)").inserted }
     }

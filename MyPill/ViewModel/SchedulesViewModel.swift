@@ -3,6 +3,7 @@ import Combine
 import WidgetKit
 
 // MARK: - SchedulesViewModel
+@MainActor
 class SchedulesViewModel: ObservableObject {
     @Published private(set) var schedules: [String: [Schedule]] = [:] {
         didSet { persistSchedules() }
@@ -133,9 +134,9 @@ class SchedulesViewModel: ObservableObject {
         NotificationManager.shared.snoozeNotification(for: snoozed, minutes: 30)
     }
 
-    // MARK: - 특정 날짜 일정 조회
+    // MARK: - 특정 날짜 일정 조회 (시간순 정렬)
     func schedules(for date: Date) -> [Schedule] {
-        schedules[dateKey(from: date)] ?? []
+        (schedules[dateKey(from: date)] ?? []).sorted { $0.takeTime < $1.takeTime }
     }
 
     // MARK: - 포맷 헬퍼

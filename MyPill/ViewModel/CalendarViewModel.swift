@@ -17,6 +17,7 @@ struct DateInfo: Identifiable {
 }
 
 // MARK: - ViewModel
+@MainActor
 class CalendarViewModel: ObservableObject {
     @Published var currentDate: Date = Date()
     @Published var currentMonthOffset: Int = 0  // currentMonth → currentMonthOffset (의미 명확화)
