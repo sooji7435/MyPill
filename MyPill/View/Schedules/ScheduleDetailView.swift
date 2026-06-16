@@ -158,6 +158,9 @@ struct ScheduleDetailView: View {
     private var snoozeButton: some View {
         Button {
             schedulesViewModel.snoozeSchedule(schedule)
+            if let updated = schedulesViewModel.schedule(withID: schedule.id) {
+                schedule = updated
+            }
         } label: {
             Label("30분 후 다시 알림", systemImage: "clock.arrow.circlepath")
                 .font(.custom("Cafe24Dongdong", size: 12))
