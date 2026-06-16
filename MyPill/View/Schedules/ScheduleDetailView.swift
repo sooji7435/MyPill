@@ -45,6 +45,11 @@ struct ScheduleDetailView: View {
         .sheet(isPresented: $showEditSheet) {
             ScheduleAddView(scheduleToEdit: schedule)
         }
+        .onChange(of: showEditSheet) { _, isShowing in
+            guard !isShowing,
+                  let updated = schedulesViewModel.schedule(withID: schedule.id) else { return }
+            schedule = updated
+        }
     }
 
     // MARK: - 아이콘 박스

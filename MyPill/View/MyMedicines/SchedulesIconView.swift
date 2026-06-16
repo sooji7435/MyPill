@@ -5,7 +5,6 @@ struct SchedulesIconView: View {
 
     @State private var selectedItem: Schedule?
 
-    // 같은 제목+아이콘 기준으로 중복 제거 (약 단위로 표시)
     private var uniqueMedicines: [Schedule] {
         var seen = Set<String>()
         return schedule.schedules.values
@@ -24,7 +23,6 @@ struct SchedulesIconView: View {
                         .padding()
                         .background(Color.MainColor.opacity(0.2))
                         .clipShape(Circle())
-
                     Text(item.title)
                         .font(.custom("Cafe24Dongdong", size: 24))
                         .lineLimit(1)
@@ -32,17 +30,18 @@ struct SchedulesIconView: View {
                 }
                 .frame(width: 80)
                 .onLongPressGesture { selectedItem = item }
-                .alert(item: $selectedItem) { item in
-                    Alert(
-                        title: Text("'\(item.title)' 삭제"),
-                        message: Text("이 약의 모든 일정이 삭제됩니다."),
-                        primaryButton: .destructive(Text("삭제")) {
-                            schedule.removeAllSchedules(withTitle: item.title, iconName: item.iconName)
-                        },
-                        secondaryButton: .cancel(Text("취소"))
-                    )
-                }
             }
+        }
+        // alert을 ForEach 밖으로 이동 → 중복 선언 방지
+        .alert(item: $selectedItem) { item in
+            Alert(
+                title: Text("'\(item.title)' 삭제"),
+                message: Text("이 약의 모든 일정이 삭제됩니다."),
+                primaryButton: .destructive(Text("삭제")) {
+                    schedule.removeAllSchedules(withTitle: item.title, iconName: item.iconName)
+                },
+                secondaryButton: .cancel(Text("취소"))
+            )
         }
     }
 }

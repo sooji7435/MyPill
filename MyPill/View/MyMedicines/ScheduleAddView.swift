@@ -12,22 +12,28 @@ struct ScheduleAddView: View {
     @State private var description: String
     @State private var iconName: String
     @State private var repeatType: RepeatType
-    @State private var showDateSheet = false
-    @State private var showTimeSheet = false
+    @State private var hasEndDate: Bool
+    @State private var repeatEndDate: Date
+    @State private var showDateSheet    = false
+    @State private var showTimeSheet    = false
+    @State private var showEndDateSheet = false
 
     private let iconList = ["pill", "vitamin_C", "vitamin_D", "omega3", "doctor"]
     private var isEditing: Bool { scheduleToEdit != nil }
-    private var canSave: Bool { !title.isEmpty && !iconName.isEmpty }
+    private var canSave: Bool   { !title.isEmpty && !iconName.isEmpty }
 
     init(scheduleToEdit: Schedule? = nil) {
         self.scheduleToEdit = scheduleToEdit
         let t = scheduleToEdit?.takeTime ?? Date()
-        _title        = State(initialValue: scheduleToEdit?.title ?? "")
-        _selectedDate = State(initialValue: t)
-        _selectedTime = State(initialValue: t)
-        _description  = State(initialValue: scheduleToEdit?.description ?? "")
-        _iconName     = State(initialValue: scheduleToEdit?.iconName ?? "")
-        _repeatType   = State(initialValue: scheduleToEdit?.repeatType ?? .none)
+        let defaultEnd = Calendar.current.date(byAdding: .month, value: 1, to: t) ?? t
+        _title         = State(initialValue: scheduleToEdit?.title ?? "")
+        _selectedDate  = State(initialValue: t)
+        _selectedTime  = State(initialValue: t)
+        _description   = State(initialValue: scheduleToEdit?.description ?? "")
+        _iconName      = State(initialValue: scheduleToEdit?.iconName ?? "")
+        _repeatType    = State(initialValue: scheduleToEdit?.repeatType ?? .none)
+        _hasEndDate    = State(initialValue: false)
+        _repeatEndDate = State(initialValue: defaultEnd)
     }
 
     var body: some View {
@@ -45,10 +51,12 @@ struct ScheduleAddView: View {
         }
         .background(Color(.systemBackground))
         .navigationBarHidden(true)
-        .sheet(isPresented: $showDateSheet) { dateSheet }
-        .sheet(isPresented: $showTimeSheet) { timeSheet }
+        .sheet(isPresented: $showDateSheet)    { dateSheet }
+        .sheet(isPresented: $showTimeSheet)    { timeSheet }
+        .sheet(isPresented: $showEndDateSheet) { endDateSheet }
     }
 
+    // MARK: - Navigation Bar
     private var navigationBar: some View {
         HStack {
             Button { dismiss() } label: {
@@ -69,6 +77,7 @@ struct ScheduleAddView: View {
         .padding()
     }
 
+    // MARK: - Sections
     private var titleSection: some View {
         Section(header: sectionHeader("일정 제목")) {
             TextField("예: 아침 약 복용", text: $title)
@@ -105,11 +114,23 @@ struct ScheduleAddView: View {
     private var repeatSection: some View {
         Section(header: sectionHeader("반복")) {
             Picker("반복", selection: $repeatType) {
-                ForEach(RepeatType.allCases, id: \.self) { type in
-                    Text(type.rawValue).tag(type)
-                }
+                ForEach(RepeatType.allCases, id: \.self) { Text($0.rawValue).tag($0) }
             }
             .pickerStyle(.segmented)
+
+            if repeatType != .none {
+                Toggle("종료일 지정", isOn: $hasEndDate)
+                if hasEndDate {
+                    Button { showEndDateSheet = true } label: {
+                        HStack {
+                            Text(repeatEndDate.formatted(date: .numeric, time: .omitted))
+                                .font(.custom("Cafe24Dongdong", size: 22)).foregroundStyle(.primary)
+                            Spacer()
+                            Image(systemName: "calendar.badge.clock").foregroundStyle(Color.MainColor)
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -140,6 +161,7 @@ struct ScheduleAddView: View {
         }
     }
 
+    // MARK: - Sheets
     private var dateSheet: some View {
         VStack {
             Text("날짜 선택").font(.custom("Cafe24Dongdong", size: 28)).foregroundStyle(.primary).padding(.top)
@@ -156,10 +178,19 @@ struct ScheduleAddView: View {
         }
     }
 
+    private var endDateSheet: some View {
+        VStack {
+            Text("종료일 선택").font(.custom("Cafe24Dongdong", size: 28)).foregroundStyle(.primary).padding(.top)
+            DatePicker("", selection: $repeatEndDate, in: selectedDate..., displayedComponents: .date)
+                .datePickerStyle(.graphical).tint(Color.TintColor).padding()
+        }
+    }
+
     private func sectionHeader(_ text: String) -> some View {
         Text(text).font(.custom("Cafe24Dongdong", size: 20)).foregroundStyle(.primary)
     }
 
+    // MARK: - Save
     private func save() {
         let mergedTime = mergeDateAndTime(date: selectedDate, time: selectedTime)
         if let editing = scheduleToEdit {
@@ -181,7 +212,8 @@ struct ScheduleAddView: View {
                 takeTime: mergedTime,
                 description: description.isEmpty ? nil : description,
                 iconName: iconName,
-                repeatType: repeatType
+                repeatType: repeatType,
+                endDate: hasEndDate ? repeatEndDate : nil
             )
         }
         dismiss()

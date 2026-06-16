@@ -1,14 +1,8 @@
-//
-//  CalendarView.swift
-//  PillManager
-//
-
 import SwiftUI
 
 struct CalendarView: View {
     @EnvironmentObject var calendar: CalendarViewModel
 
-    @State private var selectedDay: Int = Calendar.current.component(.day, from: Date())
     @State private var monthOffset: Int = 0
 
     @Binding var selectedDate: Date
@@ -17,7 +11,7 @@ struct CalendarView: View {
         VStack {
             CalendarYearMonth(monthOffset: $monthOffset)
             CalendarHeader()
-            CalendarBody(selectedDay: $selectedDay, selectedDate: $selectedDate, monthOffset: $monthOffset)
+            CalendarBody(selectedDate: $selectedDate, monthOffset: $monthOffset)
         }
         .background(Color(.systemBackground), in: RoundedRectangle(cornerRadius: 24))
     }
@@ -26,4 +20,5 @@ struct CalendarView: View {
 #Preview {
     CalendarView(selectedDate: .constant(Date()))
         .environmentObject(CalendarViewModel())
+        .environmentObject(SchedulesViewModel())
 }

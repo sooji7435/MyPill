@@ -4,7 +4,6 @@ struct CalendarBody: View {
     @EnvironmentObject var calendar: CalendarViewModel
     @EnvironmentObject var schedulesVM: SchedulesViewModel
 
-    @Binding var selectedDay: Int
     @Binding var selectedDate: Date
     @Binding var monthOffset: Int
 
@@ -25,11 +24,11 @@ struct CalendarBody: View {
 
     @ViewBuilder
     private func dayCell(for value: DateInfo) -> some View {
-        let isSelected    = value.day == selectedDay && calendar.currentMonthOffset == monthOffset
-        let hasSchedules  = !schedulesVM.schedules(for: value.date).isEmpty
+        // selectedDay 대신 selectedDate로 직접 비교 → 월 이동 시 오선택 버그 수정
+        let isSelected   = Calendar.current.isDate(value.date, inSameDayAs: selectedDate)
+        let hasSchedules = !schedulesVM.schedules(for: value.date).isEmpty
 
         Button {
-            selectedDay  = value.day
             selectedDate = value.date
         } label: {
             VStack(spacing: 2) {
@@ -50,7 +49,7 @@ struct CalendarBody: View {
 }
 
 #Preview {
-    CalendarBody(selectedDay: .constant(1), selectedDate: .constant(Date()), monthOffset: .constant(0))
+    CalendarBody(selectedDate: .constant(Date()), monthOffset: .constant(0))
         .environmentObject(CalendarViewModel())
         .environmentObject(SchedulesViewModel())
 }

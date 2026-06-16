@@ -25,20 +25,37 @@ class SchedulesViewModel: ObservableObject {
 
     init() { loadSchedules() }
 
-    // MARK: - 일정 추가 (반복 지원)
-    func addSchedule(title: String, takeTime: Date, description: String? = nil, iconName: String, repeatType: RepeatType = .none) {
+    // MARK: - ID로 일정 조회 (편집 후 카드 갱신용)
+    func schedule(withID id: UUID) -> Schedule? {
+        schedules.values.flatMap { $0 }.first { $0.id == id }
+    }
+
+    // MARK: - 전체 초기화
+    func resetAll() {
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        schedules = [:]
+    }
+
+    // MARK: - 일정 추가 (반복 + 종료일 지원)
+    func addSchedule(title: String, takeTime: Date, description: String? = nil, iconName: String, repeatType: RepeatType = .none, endDate: Date? = nil) {
         let groupID: UUID? = repeatType != .none ? UUID() : nil
-        let dates: [Date]
+        var dates: [Date] = []
 
         switch repeatType {
         case .none:
             dates = [takeTime]
         case .daily:
-            dates = (0..<90).compactMap { calendar.date(byAdding: .day, value: $0, to: takeTime) }
+            let end = endDate ?? calendar.date(byAdding: .day, value: 90, to: takeTime) ?? takeTime
+            var cur = takeTime
+            while cur <= end { dates.append(cur); cur = calendar.date(byAdding: .day, value: 1, to: cur) ?? end }
         case .weekly:
-            dates = (0..<52).compactMap { calendar.date(byAdding: .weekOfYear, value: $0, to: takeTime) }
+            let end = endDate ?? calendar.date(byAdding: .weekOfYear, value: 52, to: takeTime) ?? takeTime
+            var cur = takeTime
+            while cur <= end { dates.append(cur); cur = calendar.date(byAdding: .weekOfYear, value: 1, to: cur) ?? end }
         case .monthly:
-            dates = (0..<12).compactMap { calendar.date(byAdding: .month, value: $0, to: takeTime) }
+            let end = endDate ?? calendar.date(byAdding: .month, value: 12, to: takeTime) ?? takeTime
+            var cur = takeTime
+            while cur <= end { dates.append(cur); cur = calendar.date(byAdding: .month, value: 1, to: cur) ?? end }
         }
 
         for date in dates {
