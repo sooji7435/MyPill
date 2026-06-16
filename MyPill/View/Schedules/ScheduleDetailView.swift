@@ -1,15 +1,13 @@
-//
-//  ScheduleDetailView.swift
-//  MyPill
-//
-
 import SwiftUI
 
 struct ScheduleDetailView: View {
     @EnvironmentObject var schedulesViewModel: SchedulesViewModel
 
     @State var schedule: Schedule
+    @State private var showEditSheet = false
+
     var onUpdate: ((Schedule) -> Void)?
+    var onDelete: ((Schedule) -> Void)?
 
     private static let timeFormatter: DateFormatter = {
         let f = DateFormatter()
@@ -20,40 +18,18 @@ struct ScheduleDetailView: View {
     private let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
 
     var body: some View {
-        VStack() {
+        VStack {
             HStack(alignment: .top, spacing: 14) {
                 iconBox
-
                 infoText
-
                 Spacer()
-
-                    Button {
-                        guard !schedule.isMissed else { return }
-                        schedule.isTaken.toggle()
-                        onUpdate?(schedule)
-                    } label: {
-                        Image(systemName:
-                                schedule.isTaken
-                              ? "checkmark.circle.fill"
-                              : schedule.isMissed
-                              ? "xmark.circle.fill"
-                              : "circle")
-                        .font(.system(size: 26))
-                        .foregroundStyle(
-                            schedule.isTaken ? .green :
-                                schedule.isMissed ? .red : .gray
-                        )
-                    }
-                    .buttonStyle(.plain)
-                
+                checkButton
+                menuButton
             }
             .padding()
 
             if schedule.isMissed && !schedule.isTaken {
-                Divider()
-                    .padding(.horizontal)
-
+                Divider().padding(.horizontal)
                 snoozeButton
                     .padding(.bottom, 8)
                     .padding(.horizontal)
@@ -61,11 +37,14 @@ struct ScheduleDetailView: View {
         }
         .background(
             RoundedRectangle(cornerRadius: 22)
-                .fill(Color.white)
+                .fill(Color(.systemBackground))
                 .shadow(color: .black.opacity(0.05), radius: 12, x: 0, y: 6)
         )
         .onAppear { checkMissed() }
         .onReceive(timer) { _ in checkMissed() }
+        .sheet(isPresented: $showEditSheet) {
+            ScheduleAddView(scheduleToEdit: schedule)
+        }
     }
 
     // MARK: - 아이콘 박스
@@ -74,7 +53,6 @@ struct ScheduleDetailView: View {
             Circle()
                 .fill(Color.TintColor.opacity(0.15))
                 .frame(width: 76, height: 76)
-
             Image(schedule.iconName)
                 .resizable()
                 .scaledToFit()
@@ -85,9 +63,20 @@ struct ScheduleDetailView: View {
     // MARK: - 텍스트 정보
     private var infoText: some View {
         VStack(alignment: .leading) {
-            Text(schedule.title)
-                .font(.custom("Cafe24Dongdong", size: 22))
-                .fontWeight(.semibold)
+            HStack(spacing: 4) {
+                Text(schedule.title)
+                    .font(.custom("Cafe24Dongdong", size: 22))
+                    .fontWeight(.semibold)
+                if schedule.repeatType != .none {
+                    Text(schedule.repeatType.rawValue)
+                        .font(.custom("Cafe24Dongdong", size: 11))
+                        .padding(.horizontal, 6)
+                        .padding(.vertical, 2)
+                        .background(Color.MainColor.opacity(0.12))
+                        .foregroundStyle(Color.MainColor)
+                        .clipShape(Capsule())
+                }
+            }
 
             if let desc = schedule.description, !desc.isEmpty {
                 Text(desc)
@@ -95,7 +84,7 @@ struct ScheduleDetailView: View {
                     .foregroundStyle(Color.gray)
             }
 
-            HStack() {
+            HStack {
                 Label(
                     Self.timeFormatter.string(from: schedule.takeTime),
                     systemImage: "clock"
@@ -106,31 +95,62 @@ struct ScheduleDetailView: View {
                 if schedule.isMissed {
                     Text("놓침")
                         .font(.custom("Cafe24Dongdong", size: 12))
-                        .padding(.horizontal, 8)
-                        .padding(.vertical, 4)
+                        .padding(.horizontal, 8).padding(.vertical, 4)
                         .background(Color.red.opacity(0.12))
                         .foregroundStyle(.red)
                         .clipShape(Capsule())
                 } else if schedule.isTaken {
                     Text("복용 완료")
                         .font(.custom("Cafe24Dongdong", size: 12))
-                        .padding(.horizontal, 8)
-                        .padding(.vertical, 4)
+                        .padding(.horizontal, 8).padding(.vertical, 4)
                         .background(Color.green.opacity(0.12))
                         .foregroundStyle(.green)
                         .clipShape(Capsule())
-                }
-                else {
-                    Text("")
-                        .font(.custom("Cafe24Dongdong", size: 12))
-                        .padding(.horizontal, 8)
-                        .padding(.vertical, 4)
                 }
             }
         }
     }
 
-    // MARK: - 스누즈 버튼 (30분 후 알림)
+    // MARK: - 체크 버튼
+    private var checkButton: some View {
+        Button {
+            guard !schedule.isMissed else { return }
+            UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+            schedule.isTaken.toggle()
+            onUpdate?(schedule)
+        } label: {
+            Image(systemName:
+                    schedule.isTaken  ? "checkmark.circle.fill" :
+                    schedule.isMissed ? "xmark.circle.fill"     : "circle")
+                .font(.system(size: 26))
+                .foregroundStyle(
+                    schedule.isTaken  ? .green :
+                    schedule.isMissed ? .red   : .gray
+                )
+        }
+        .buttonStyle(.plain)
+    }
+
+    // MARK: - 편집/삭제 메뉴
+    private var menuButton: some View {
+        Menu {
+            Button { showEditSheet = true } label: {
+                Label("편집", systemImage: "pencil")
+            }
+            if let onDelete {
+                Button(role: .destructive) { onDelete(schedule) } label: {
+                    Label("삭제", systemImage: "trash")
+                }
+            }
+        } label: {
+            Image(systemName: "ellipsis")
+                .font(.system(size: 16))
+                .foregroundStyle(.secondary)
+                .frame(width: 28, height: 28)
+        }
+    }
+
+    // MARK: - 스누즈 버튼
     private var snoozeButton: some View {
         Button {
             schedulesViewModel.snoozeSchedule(schedule)
@@ -151,4 +171,3 @@ struct ScheduleDetailView: View {
         onUpdate?(schedule)
     }
 }
-

@@ -1,8 +1,3 @@
-//
-//  StatsView.swift
-//  MyPill
-//
-
 import SwiftUI
 import Charts
 
@@ -23,29 +18,26 @@ struct StatsView: View {
 
     var body: some View {
         NavigationStack {
-            ScrollView {
-                VStack(spacing: 24) {
-                    // MARK: - 전체 복용률 링
-                    adherenceRing
-
-                    // MARK: - 탭 피커
-                    Picker("기간", selection: $selectedTab) {
-                        ForEach(StatTab.allCases, id: \.self) { tab in
-                            Text(tab.rawValue).tag(tab)
+            Group {
+                if schedulesViewModel.schedules.isEmpty {
+                    emptyState
+                } else {
+                    ScrollView {
+                        VStack(spacing: 24) {
+                            adherenceRing
+                            Picker("기간", selection: $selectedTab) {
+                                ForEach(StatTab.allCases, id: \.self) { tab in
+                                    Text(tab.rawValue).tag(tab)
+                                }
+                            }
+                            .pickerStyle(.segmented)
+                            .padding(.horizontal)
+                            barChart.padding(.horizontal)
+                            summaryCards.padding(.horizontal)
                         }
+                        .padding(.vertical)
                     }
-                    .pickerStyle(.segmented)
-                    .padding(.horizontal)
-
-                    // MARK: - 막대 차트
-                    barChart
-                        .padding(.horizontal)
-
-                    // MARK: - 요약 카드
-                    summaryCards
-                        .padding(.horizontal)
                 }
-                .padding(.vertical)
             }
             .navigationTitle("통계")
             .onAppear { statsVM.calculate(from: schedulesViewModel.schedules) }
@@ -55,6 +47,23 @@ struct StatsView: View {
         }
     }
 
+    // MARK: - 빈 상태
+    private var emptyState: some View {
+        VStack(spacing: 16) {
+            Image(systemName: "chart.bar.xaxis")
+                .font(.system(size: 48))
+                .foregroundStyle(Color.appColor4)
+            Text("아직 기록이 없어요")
+                .font(.custom("Cafe24Dongdong", size: 24))
+            Text("일정을 추가하고 복용 기록을 쌓아보세요")
+                .font(.custom("Cafe24Dongdong", size: 16))
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
+        }
+        .padding(40)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+
     // MARK: - 전체 복용률 원형 표시
     private var adherenceRing: some View {
         VStack(spacing: 8) {
@@ -62,14 +71,12 @@ struct StatsView: View {
                 Circle()
                     .stroke(Color.BackGroundColor.opacity(0.2), lineWidth: 16)
                     .frame(width: 140, height: 140)
-
                 Circle()
                     .trim(from: 0, to: statsVM.overallRate)
                     .stroke(Color.appColor4, style: StrokeStyle(lineWidth: 16, lineCap: .round))
                     .frame(width: 140, height: 140)
                     .rotationEffect(.degrees(-90))
                     .animation(.easeInOut(duration: 0.8), value: statsVM.overallRate)
-
                 VStack {
                     Text("\(Int(statsVM.overallRate * 100))%")
                         .font(.custom("Cafe24Dongdong", size: 32))
@@ -100,7 +107,6 @@ struct StatsView: View {
                 )
                 .cornerRadius(6)
 
-                // 목표선 (80%)
                 RuleMark(y: .value("목표", 0.75))
                     .lineStyle(StrokeStyle(lineWidth: 1, dash: [4]))
                     .foregroundStyle(.gray.opacity(0.5))
@@ -123,7 +129,7 @@ struct StatsView: View {
             .animation(.easeInOut, value: selectedTab)
         }
         .padding()
-        .background(Color.white, in: RoundedRectangle(cornerRadius: 16))
+        .background(Color(.systemBackground), in: RoundedRectangle(cornerRadius: 16))
         .shadow(color: .black.opacity(0.06), radius: 6, x: 0, y: 3)
     }
 
@@ -136,8 +142,8 @@ struct StatsView: View {
         let perfect = stats.filter { $0.total > 0 && $0.taken == $0.total }.count
 
         return HStack(spacing: 12) {
-            StatCard(title: "복용 완료", value: "\(taken)회", color: .MainColor)
-            StatCard(title: "누락",     value: "\(missed)회", color: .red)
+            StatCard(title: "복용 완료", value: "\(taken)회",   color: .MainColor)
+            StatCard(title: "누락",     value: "\(missed)회",   color: .red)
             StatCard(title: "완벽한 날", value: "\(perfect)일", color: .orange)
         }
     }
@@ -160,7 +166,7 @@ struct StatCard: View {
         }
         .frame(maxWidth: .infinity)
         .padding(.vertical, 16)
-        .background(Color.white, in: RoundedRectangle(cornerRadius: 14))
+        .background(Color(.systemBackground), in: RoundedRectangle(cornerRadius: 14))
         .shadow(color: .black.opacity(0.06), radius: 4, x: 0, y: 2)
     }
 }

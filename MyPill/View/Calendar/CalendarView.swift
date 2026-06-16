@@ -19,7 +19,7 @@ struct CalendarView: View {
             CalendarHeader()
             CalendarBody(selectedDay: $selectedDay, selectedDate: $selectedDate, monthOffset: $monthOffset)
         }
-        .background(Color.white, in: RoundedRectangle(cornerRadius: 24))
+        .background(Color(.systemBackground), in: RoundedRectangle(cornerRadius: 24))
     }
 }
 

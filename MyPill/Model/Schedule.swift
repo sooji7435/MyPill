@@ -1,17 +1,14 @@
-//
-//  Schedule.swift
-//  MyPill
-//
-//  Created by 박윤수 on 3/18/26.
-//
-//  이 파일은 앱 타겟 + 위젯 타겟 모두에 체크해야 합니다.
-//  (SwiftUI / Foundation 만 사용 → 위젯에서 임포트 가능)
-
-
 import Foundation
 
+// MARK: - RepeatType
+enum RepeatType: String, Codable, CaseIterable {
+    case none    = "없음"
+    case daily   = "매일"
+    case weekly  = "매주"
+    case monthly = "매월"
+}
+
 // MARK: - Schedule
-// 앱과 위젯이 공유하는 핵심 모델
 struct Schedule: Identifiable, Hashable, Codable {
     let id: UUID
     var title: String
@@ -20,6 +17,8 @@ struct Schedule: Identifiable, Hashable, Codable {
     var takeTime: Date
     var isTaken: Bool
     var isMissed: Bool
+    var repeatType: RepeatType
+    var repeatGroupID: UUID?
 
     init(
         id: UUID = UUID(),
@@ -28,15 +27,32 @@ struct Schedule: Identifiable, Hashable, Codable {
         iconName: String,
         takeTime: Date,
         isTaken: Bool = false,
-        isMissed: Bool = false
+        isMissed: Bool = false,
+        repeatType: RepeatType = .none,
+        repeatGroupID: UUID? = nil
     ) {
-        self.id          = id
-        self.title       = title
-        self.description = description
-        self.iconName    = iconName
-        self.takeTime    = takeTime
-        self.isTaken     = isTaken
-        self.isMissed    = isMissed
+        self.id            = id
+        self.title         = title
+        self.description   = description
+        self.iconName      = iconName
+        self.takeTime      = takeTime
+        self.isTaken       = isTaken
+        self.isMissed      = isMissed
+        self.repeatType    = repeatType
+        self.repeatGroupID = repeatGroupID
+    }
+
+    // 기존 저장 데이터와의 하위 호환성 유지
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        id            = try c.decode(UUID.self,   forKey: .id)
+        title         = try c.decode(String.self, forKey: .title)
+        description   = try c.decodeIfPresent(String.self, forKey: .description)
+        iconName      = try c.decode(String.self, forKey: .iconName)
+        takeTime      = try c.decode(Date.self,   forKey: .takeTime)
+        isTaken       = try c.decode(Bool.self,   forKey: .isTaken)
+        isMissed      = try c.decode(Bool.self,   forKey: .isMissed)
+        repeatType    = try c.decodeIfPresent(RepeatType.self, forKey: .repeatType) ?? .none
+        repeatGroupID = try c.decodeIfPresent(UUID.self, forKey: .repeatGroupID)
     }
 }
-

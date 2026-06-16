@@ -1,12 +1,8 @@
-//
-//  CalendarBody.swift
-//  PillManager
-//
-
 import SwiftUI
 
 struct CalendarBody: View {
     @EnvironmentObject var calendar: CalendarViewModel
+    @EnvironmentObject var schedulesVM: SchedulesViewModel
 
     @Binding var selectedDay: Int
     @Binding var selectedDate: Date
@@ -29,19 +25,25 @@ struct CalendarBody: View {
 
     @ViewBuilder
     private func dayCell(for value: DateInfo) -> some View {
-        let isSelected = value.day == selectedDay
+        let isSelected    = value.day == selectedDay && calendar.currentMonthOffset == monthOffset
+        let hasSchedules  = !schedulesVM.schedules(for: value.date).isEmpty
 
         Button {
             selectedDay  = value.day
             selectedDate = value.date
         } label: {
-            ZStack {
+            VStack(spacing: 2) {
+                ZStack {
+                    Circle()
+                        .foregroundColor(isSelected ? Color.BackGroundColor : .clear)
+                    Text("\(value.day)")
+                        .font(.custom("Cafe24Dongdong", size: 30))
+                        .fontWeight(.semibold)
+                        .foregroundStyle(.primary)
+                }
                 Circle()
-                    .foregroundColor(isSelected ? Color.BackGroundColor : .clear)
-                Text("\(value.day)")
-                    .font(.custom("Cafe24Dongdong", size: 30))
-                    .fontWeight(.semibold)
-                    .foregroundStyle(.black)
+                    .fill(hasSchedules ? Color.MainColor : Color.clear)
+                    .frame(width: 4, height: 4)
             }
         }
     }
@@ -50,4 +52,5 @@ struct CalendarBody: View {
 #Preview {
     CalendarBody(selectedDay: .constant(1), selectedDate: .constant(Date()), monthOffset: .constant(0))
         .environmentObject(CalendarViewModel())
+        .environmentObject(SchedulesViewModel())
 }

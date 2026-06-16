@@ -1,24 +1,22 @@
-//
-//  SchedulesIconView.swift
-//  PillManager
-//
-
 import SwiftUI
 
 struct SchedulesIconView: View {
     @EnvironmentObject var schedule: SchedulesViewModel
-    
+
     @State private var selectedItem: Schedule?
 
-    private var allSchedules: [Schedule] {
-        schedule.schedules.values
+    // 같은 제목+아이콘 기준으로 중복 제거 (약 단위로 표시)
+    private var uniqueMedicines: [Schedule] {
+        var seen = Set<String>()
+        return schedule.schedules.values
             .flatMap { $0 }
             .sorted { $0.takeTime < $1.takeTime }
+            .filter { seen.insert("\($0.title)_\($0.iconName)").inserted }
     }
 
     var body: some View {
         HStack(spacing: 12) {
-            ForEach(allSchedules) { item in
+            ForEach(uniqueMedicines) { item in
                 VStack(spacing: 6) {
                     Image(item.iconName)
                         .resizable()
@@ -26,22 +24,20 @@ struct SchedulesIconView: View {
                         .padding()
                         .background(Color.MainColor.opacity(0.2))
                         .clipShape(Circle())
-                    
+
                     Text(item.title)
                         .font(.custom("Cafe24Dongdong", size: 24))
                         .lineLimit(1)
                         .truncationMode(.tail)
                 }
                 .frame(width: 80)
-                .onLongPressGesture {
-                    selectedItem = item
-                }
+                .onLongPressGesture { selectedItem = item }
                 .alert(item: $selectedItem) { item in
                     Alert(
-                        title: Text("삭제하시겠습니까?"),
-                        message: Text("삭제된 스케줄은 복구할 수 없습니다."),
+                        title: Text("'\(item.title)' 삭제"),
+                        message: Text("이 약의 모든 일정이 삭제됩니다."),
                         primaryButton: .destructive(Text("삭제")) {
-                            schedule.removeSchedule(item)
+                            schedule.removeAllSchedules(withTitle: item.title, iconName: item.iconName)
                         },
                         secondaryButton: .cancel(Text("취소"))
                     )

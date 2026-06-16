@@ -1,24 +1,34 @@
-//
-//  ScheduleAddView.swift
-//  PillManager
-//
-
 import SwiftUI
 
 struct ScheduleAddView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var schedulesViewModel: SchedulesViewModel
 
-    @State private var title: String = ""
-    @State private var selectedDate: Date = Date()
-    @State private var selectedTime: Date = Date()
-    @State private var description: String = ""
-    @State private var iconName: String = ""
+    var scheduleToEdit: Schedule? = nil
+
+    @State private var title: String
+    @State private var selectedDate: Date
+    @State private var selectedTime: Date
+    @State private var description: String
+    @State private var iconName: String
+    @State private var repeatType: RepeatType
     @State private var showDateSheet = false
     @State private var showTimeSheet = false
 
     private let iconList = ["pill", "vitamin_C", "vitamin_D", "omega3", "doctor"]
+    private var isEditing: Bool { scheduleToEdit != nil }
     private var canSave: Bool { !title.isEmpty && !iconName.isEmpty }
+
+    init(scheduleToEdit: Schedule? = nil) {
+        self.scheduleToEdit = scheduleToEdit
+        let t = scheduleToEdit?.takeTime ?? Date()
+        _title        = State(initialValue: scheduleToEdit?.title ?? "")
+        _selectedDate = State(initialValue: t)
+        _selectedTime = State(initialValue: t)
+        _description  = State(initialValue: scheduleToEdit?.description ?? "")
+        _iconName     = State(initialValue: scheduleToEdit?.iconName ?? "")
+        _repeatType   = State(initialValue: scheduleToEdit?.repeatType ?? .none)
+    }
 
     var body: some View {
         VStack(spacing: 20) {
@@ -27,12 +37,13 @@ struct ScheduleAddView: View {
                 titleSection
                 dateSection
                 timeSection
+                if !isEditing { repeatSection }
                 memoSection
                 iconSection
             }
             .scrollContentBackground(.hidden)
         }
-        .background(Color.white)
+        .background(Color(.systemBackground))
         .navigationBarHidden(true)
         .sheet(isPresented: $showDateSheet) { dateSheet }
         .sheet(isPresented: $showTimeSheet) { timeSheet }
@@ -44,19 +55,11 @@ struct ScheduleAddView: View {
                 Image(systemName: "xmark").font(.title2).foregroundStyle(.gray)
             }
             Spacer()
-            Text("새로운 일정 추가")
+            Text(isEditing ? "일정 편집" : "새로운 일정 추가")
                 .font(.custom("Cafe24Dongdong", size: 28))
-                .foregroundStyle(.black)
+                .foregroundStyle(.primary)
             Spacer()
-            Button {
-                schedulesViewModel.addSchedule(
-                    title: title,
-                    takeTime: mergeDateAndTime(date: selectedDate, time: selectedTime),
-                    description: description.isEmpty ? nil : description,
-                    iconName: iconName
-                )
-                dismiss()
-            } label: {
+            Button { save() } label: {
                 Text("저장")
                     .font(.custom("Cafe24Dongdong", size: 24))
                     .foregroundStyle(canSave ? Color.MainColor : .gray)
@@ -78,7 +81,7 @@ struct ScheduleAddView: View {
             Button { showDateSheet = true } label: {
                 HStack {
                     Text(selectedDate.formatted(date: .numeric, time: .omitted))
-                        .font(.custom("Cafe24Dongdong", size: 22)).foregroundStyle(.black)
+                        .font(.custom("Cafe24Dongdong", size: 22)).foregroundStyle(.primary)
                     Spacer()
                     Image(systemName: "calendar").foregroundStyle(Color.BackGroundColor)
                 }
@@ -91,11 +94,22 @@ struct ScheduleAddView: View {
             Button { showTimeSheet = true } label: {
                 HStack {
                     Text(selectedTime.formatted(date: .omitted, time: .shortened))
-                        .font(.custom("Cafe24Dongdong", size: 22)).foregroundStyle(.black)
+                        .font(.custom("Cafe24Dongdong", size: 22)).foregroundStyle(.primary)
                     Spacer()
                     Image(systemName: "clock").foregroundStyle(Color.MainColor)
                 }
             }
+        }
+    }
+
+    private var repeatSection: some View {
+        Section(header: sectionHeader("반복")) {
+            Picker("반복", selection: $repeatType) {
+                ForEach(RepeatType.allCases, id: \.self) { type in
+                    Text(type.rawValue).tag(type)
+                }
+            }
+            .pickerStyle(.segmented)
         }
     }
 
@@ -128,7 +142,7 @@ struct ScheduleAddView: View {
 
     private var dateSheet: some View {
         VStack {
-            Text("날짜 선택").font(.custom("Cafe24Dongdong", size: 28)).foregroundStyle(.black).padding(.top)
+            Text("날짜 선택").font(.custom("Cafe24Dongdong", size: 28)).foregroundStyle(.primary).padding(.top)
             DatePicker("", selection: $selectedDate, displayedComponents: .date)
                 .datePickerStyle(.graphical).tint(Color.TintColor).padding()
         }
@@ -136,21 +150,48 @@ struct ScheduleAddView: View {
 
     private var timeSheet: some View {
         VStack {
-            Text("시간 선택").font(.custom("Cafe24Dongdong", size: 28)).foregroundStyle(.black).padding(.top)
+            Text("시간 선택").font(.custom("Cafe24Dongdong", size: 28)).foregroundStyle(.primary).padding(.top)
             DatePicker("", selection: $selectedTime, displayedComponents: .hourAndMinute)
                 .datePickerStyle(.wheel).labelsHidden().padding()
         }
     }
 
     private func sectionHeader(_ text: String) -> some View {
-        Text(text).font(.custom("Cafe24Dongdong", size: 20)).foregroundStyle(.black)
+        Text(text).font(.custom("Cafe24Dongdong", size: 20)).foregroundStyle(.primary)
+    }
+
+    private func save() {
+        let mergedTime = mergeDateAndTime(date: selectedDate, time: selectedTime)
+        if let editing = scheduleToEdit {
+            let updated = Schedule(
+                id: editing.id,
+                title: title,
+                description: description.isEmpty ? nil : description,
+                iconName: iconName,
+                takeTime: mergedTime,
+                isTaken: editing.isTaken,
+                isMissed: editing.isMissed,
+                repeatType: editing.repeatType,
+                repeatGroupID: editing.repeatGroupID
+            )
+            schedulesViewModel.editSchedule(old: editing, new: updated)
+        } else {
+            schedulesViewModel.addSchedule(
+                title: title,
+                takeTime: mergedTime,
+                description: description.isEmpty ? nil : description,
+                iconName: iconName,
+                repeatType: repeatType
+            )
+        }
+        dismiss()
     }
 
     private func mergeDateAndTime(date: Date, time: Date) -> Date {
         let cal = Calendar.current
         var components = cal.dateComponents([.year, .month, .day], from: date)
         let t = cal.dateComponents([.hour, .minute], from: time)
-        components.hour = t.hour
+        components.hour   = t.hour
         components.minute = t.minute
         return cal.date(from: components) ?? date
     }
