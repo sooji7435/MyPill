@@ -1,5 +1,6 @@
 import Foundation
 import Combine
+import WidgetKit
 
 // MARK: - SchedulesViewModel
 class SchedulesViewModel: ObservableObject {
@@ -129,6 +130,7 @@ class SchedulesViewModel: ObservableObject {
         guard let data = try? JSONEncoder().encode(schedules) else { return }
         UserDefaults.standard.set(data, forKey: storageKey)
         SharedStore.saveToday(schedules(for: Date()))
+        WidgetCenter.shared.reloadAllTimelines()
     }
 
     private func loadSchedules() {

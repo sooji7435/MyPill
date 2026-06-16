@@ -1,10 +1,3 @@
-//
-//  MyPillWidgetBundle.swift
-//  MyPillWidget
-//
-//  Created by 박윤수 on 3/18/26.
-//
-
 import WidgetKit
 import SwiftUI
 
@@ -12,6 +5,5 @@ import SwiftUI
 struct MyPillWidgetBundle: WidgetBundle {
     var body: some Widget {
         MyPillWidget()
-        MyPillWidgetControl()
     }
 }

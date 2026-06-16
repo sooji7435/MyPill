@@ -1,22 +1,11 @@
-//
-//  MyPillWidget.swift
-//  MyPillWidget   ← Widget Extension 타겟에 추가
-//
-//  Xcode 설정:
-//  1. File → New → Target → Widget Extension → 이름: MyPillWidget
-//  2. 앱 타겟 + 위젯 타겟 모두 → Signing & Capabilities → App Groups → group.com.yourname.mypill 추가
-//  3. Schedule.swift, SharedStore.swift 를 위젯 타겟 멤버십에 체크
-//
-
 import WidgetKit
 import SwiftUI
 
-// MARK: - 타임라인 엔트리 (위젯이 표시할 데이터 스냅샷)
+// MARK: - 타임라인 엔트리
 struct PillEntry: TimelineEntry {
     let date: Date
     let schedules: [Schedule]
 
-    // 다음에 복용할 일정
     var nextSchedule: Schedule? {
         schedules
             .filter { !$0.isTaken && $0.takeTime > Date() }
@@ -24,7 +13,6 @@ struct PillEntry: TimelineEntry {
             .first
     }
 
-    // 오늘 전체 복용률
     var adherenceRate: Double {
         let past = schedules.filter { $0.takeTime <= Date() }
         guard !past.isEmpty else { return 0 }
@@ -32,38 +20,46 @@ struct PillEntry: TimelineEntry {
     }
 }
 
-// MARK: - 타임라인 프로바이더 (언제 위젯을 갱신할지 결정)
+// MARK: - 타임라인 프로바이더
 struct PillProvider: TimelineProvider {
-    // 위젯 갤러리 미리보기용
     func placeholder(in context: Context) -> PillEntry {
         PillEntry(date: Date(), schedules: [])
     }
 
-    // 위젯 추가 시 스냅샷
     func getSnapshot(in context: Context, completion: @escaping (PillEntry) -> Void) {
-        let entry = PillEntry(date: Date(), schedules: SharedStore.loadToday())
-        completion(entry)
+        completion(PillEntry(date: Date(), schedules: SharedStore.loadToday()))
     }
 
-    // 실제 타임라인 — 매 시간마다 갱신
     func getTimeline(in context: Context, completion: @escaping (Timeline<PillEntry>) -> Void) {
         let schedules = SharedStore.loadToday()
         let entry     = PillEntry(date: Date(), schedules: schedules)
 
-        // 다음 갱신: 1시간 후 or 다음 복용 시간 중 빠른 것
-        let nextHour  = Calendar.current.date(byAdding: .hour, value: 1, to: Date()) ?? Date()
-        let nextDose  = schedules
+        let nextHour = Calendar.current.date(byAdding: .hour, value: 1, to: Date()) ?? Date()
+        let nextDose = schedules
             .filter { !$0.isTaken && $0.takeTime > Date() }
             .sorted { $0.takeTime < $1.takeTime }
             .first?.takeTime ?? nextHour
-        let refreshAt = min(nextHour, nextDose)
 
-        let timeline = Timeline(entries: [entry], policy: .after(refreshAt))
-        completion(timeline)
+        completion(Timeline(entries: [entry], policy: .after(min(nextHour, nextDose))))
     }
 }
 
-// MARK: - Small 위젯 뷰
+// MARK: - 크기별 분기 뷰 (GeometryReader 대신 widgetFamily 사용)
+struct MyPillWidgetEntryView: View {
+    @Environment(\.widgetFamily) var family
+    let entry: PillEntry
+
+    var body: some View {
+        switch family {
+        case .systemSmall:
+            SmallWidgetView(entry: entry)
+        default:
+            MediumWidgetView(entry: entry)
+        }
+    }
+}
+
+// MARK: - Small 위젯
 struct SmallWidgetView: View {
     let entry: PillEntry
 
@@ -95,7 +91,6 @@ struct SmallWidgetView: View {
                     .foregroundStyle(Color.MainColor)
             }
 
-            // 복용률 프로그레스 바
             GeometryReader { geo in
                 ZStack(alignment: .leading) {
                     Capsule().fill(Color.gray.opacity(0.2)).frame(height: 6)
@@ -107,11 +102,11 @@ struct SmallWidgetView: View {
             .frame(height: 6)
         }
         .padding()
-        .containerBackground(Color.white, for: .widget)
+        .containerBackground(.background, for: .widget)
     }
 }
 
-// MARK: - Medium 위젯 뷰
+// MARK: - Medium 위젯
 struct MediumWidgetView: View {
     let entry: PillEntry
 
@@ -123,7 +118,6 @@ struct MediumWidgetView: View {
 
     var body: some View {
         HStack(spacing: 16) {
-            // 왼쪽: 복용률 원형
             VStack(spacing: 4) {
                 ZStack {
                     Circle()
@@ -145,7 +139,6 @@ struct MediumWidgetView: View {
 
             Divider()
 
-            // 오른쪽: 일정 목록 (최대 3개)
             VStack(alignment: .leading, spacing: 6) {
                 Text("오늘 일정")
                     .font(.caption.bold())
@@ -174,24 +167,17 @@ struct MediumWidgetView: View {
             }
         }
         .padding()
-        .containerBackground(Color.white, for: .widget)
+        .containerBackground(.background, for: .widget)
     }
 }
 
-// MARK: - 위젯 메인
+// MARK: - 위젯 등록
 struct MyPillWidget: Widget {
     let kind = "MyPillWidget"
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: PillProvider()) { entry in
-            // 위젯 크기별 분기
-            GeometryReader { geo in
-                if geo.size.width < 180 {
-                    SmallWidgetView(entry: entry)
-                } else {
-                    MediumWidgetView(entry: entry)
-                }
-            }
+            MyPillWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("MyPill 복용 일정")
         .description("오늘 복용할 약과 복용률을 확인하세요.")
@@ -203,17 +189,8 @@ struct MyPillWidget: Widget {
     MyPillWidget()
 } timeline: {
     PillEntry(date: .now, schedules: [
-        Schedule(title: "오메가3", iconName: "fish.fill", takeTime: Date(), isTaken: true),
-        Schedule(title: "비타민D", iconName: "sun.max.fill", takeTime: Date().addingTimeInterval(3600), isTaken: false)
-    ])
-}
-
-#Preview(as: .systemSmall) {
-    MyPillWidget()
-} timeline: {
-    PillEntry(date: .now, schedules: [
-        Schedule(title: "오메가3", iconName: "fish.fill", takeTime: Date(), isTaken: true),
-        Schedule(title: "비타민D", iconName: "sun.max.fill", takeTime: Date().addingTimeInterval(3600), isTaken: false)
+        Schedule(title: "오메가3",  iconName: "omega3",    takeTime: Date(),                          isTaken: true),
+        Schedule(title: "비타민D",  iconName: "vitamin_D", takeTime: Date().addingTimeInterval(3600), isTaken: false)
     ])
 }
 
@@ -221,44 +198,8 @@ struct MyPillWidget: Widget {
     MyPillWidget()
 } timeline: {
     PillEntry(date: .now, schedules: [
-        Schedule(title: "오메가3", iconName: "fish.fill", takeTime: Date(), isTaken: true),
-        Schedule(title: "비타민D", iconName: "sun.max.fill", takeTime: Date().addingTimeInterval(3600), isTaken: false),
-        Schedule(title: "철분제", iconName: "bolt.fill", takeTime: Date().addingTimeInterval(7200), isTaken: false)
+        Schedule(title: "오메가3",  iconName: "omega3",    takeTime: Date(),                          isTaken: true),
+        Schedule(title: "비타민D",  iconName: "vitamin_D", takeTime: Date().addingTimeInterval(3600), isTaken: false),
+        Schedule(title: "철분제",   iconName: "pill",      takeTime: Date().addingTimeInterval(7200), isTaken: false)
     ])
 }
-
-#Preview(as: .systemLarge) {
-    MyPillWidget()
-} timeline: {
-    PillEntry(date: .now, schedules: [
-        Schedule(title: "오메가3", iconName: "fish.fill", takeTime: Date(), isTaken: true),
-        Schedule(title: "비타민D", iconName: "sun.max.fill", takeTime: Date().addingTimeInterval(3600), isTaken: false),
-        Schedule(title: "철분제", iconName: "bolt.fill", takeTime: Date().addingTimeInterval(7200), isTaken: false),
-        Schedule(title: "마그네슘", iconName: "leaf.fill", takeTime: Date().addingTimeInterval(10800), isTaken: false)
-    ])
-}
-
-#Preview("All Sizes") {
-    ScrollView {
-        VStack(spacing: 20) {
-            Text("Small").font(.caption).foregroundStyle(.secondary)
-            SmallWidgetView(entry: PillEntry(date: .now, schedules: [
-                Schedule(title: "오메가3", iconName: "fish.fill", takeTime: Date(), isTaken: true),
-                Schedule(title: "비타민D", iconName: "sun.max.fill", takeTime: Date().addingTimeInterval(3600), isTaken: false)
-            ]))
-            .frame(width: 155, height: 155)
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-
-            Text("Medium").font(.caption).foregroundStyle(.secondary)
-            MediumWidgetView(entry: PillEntry(date: .now, schedules: [
-                Schedule(title: "오메가3", iconName: "fish.fill", takeTime: Date(), isTaken: true),
-                Schedule(title: "비타민D", iconName: "sun.max.fill", takeTime: Date().addingTimeInterval(3600), isTaken: false),
-                Schedule(title: "철분제", iconName: "bolt.fill", takeTime: Date().addingTimeInterval(7200), isTaken: false)
-            ]))
-            .frame(width: 329, height: 155)
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-        }
-        .padding()
-    }
-}
-
