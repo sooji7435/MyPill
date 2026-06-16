@@ -23,6 +23,7 @@ struct MyPillApp: App {
         .onChange(of: scenePhase) { _, phase in
             if phase == .active {
                 NotificationManager.shared.clearBadge()
+                calendarViewModel.refreshCurrentDate()
             }
         }
     }

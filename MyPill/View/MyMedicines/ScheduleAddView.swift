@@ -1,4 +1,5 @@
 import SwiftUI
+import UserNotifications
 
 struct ScheduleAddView: View {
     @Environment(\.dismiss) private var dismiss
@@ -14,9 +15,10 @@ struct ScheduleAddView: View {
     @State private var repeatType: RepeatType
     @State private var hasEndDate: Bool
     @State private var repeatEndDate: Date
-    @State private var showDateSheet    = false
-    @State private var showTimeSheet    = false
-    @State private var showEndDateSheet = false
+    @State private var showDateSheet         = false
+    @State private var showTimeSheet         = false
+    @State private var showEndDateSheet      = false
+    @State private var showNotificationAlert = false
 
     private let iconList = ["pill", "vitamin_C", "vitamin_D", "omega3", "doctor"]
     private var isEditing: Bool { scheduleToEdit != nil }
@@ -43,7 +45,11 @@ struct ScheduleAddView: View {
                 titleSection
                 dateSection
                 timeSection
-                if !isEditing { repeatSection }
+                if isEditing {
+                    if repeatType != .none { repeatReadOnlySection }
+                } else {
+                    repeatSection
+                }
                 memoSection
                 iconSection
             }
@@ -54,6 +60,17 @@ struct ScheduleAddView: View {
         .sheet(isPresented: $showDateSheet)    { dateSheet }
         .sheet(isPresented: $showTimeSheet)    { timeSheet }
         .sheet(isPresented: $showEndDateSheet) { endDateSheet }
+        .alert("알림 권한 없음", isPresented: $showNotificationAlert) {
+            Button("설정 열기") {
+                if let url = URL(string: UIApplication.openSettingsURLString) {
+                    UIApplication.shared.open(url)
+                }
+            }
+            Button("그냥 저장") { performSave() }
+            Button("취소", role: .cancel) {}
+        } message: {
+            Text("알림 권한이 없어 복용 알림을 받을 수 없습니다.\n설정에서 알림을 허용하거나 그냥 저장할 수 있습니다.")
+        }
     }
 
     // MARK: - Navigation Bar
@@ -107,6 +124,19 @@ struct ScheduleAddView: View {
                     Spacer()
                     Image(systemName: "clock").foregroundStyle(Color.MainColor)
                 }
+            }
+        }
+    }
+
+    private var repeatReadOnlySection: some View {
+        Section(header: sectionHeader("반복")) {
+            HStack {
+                Text(repeatType.rawValue)
+                    .font(.custom("Cafe24Dongdong", size: 22))
+                Spacer()
+                Text("편집 모드에서는 변경 불가")
+                    .font(.caption)
+                    .foregroundStyle(.tertiary)
             }
         }
     }
@@ -190,8 +220,20 @@ struct ScheduleAddView: View {
         Text(text).font(.custom("Cafe24Dongdong", size: 20)).foregroundStyle(.primary)
     }
 
-    // MARK: - Save
+    // MARK: - Save (알림 권한 체크 후 저장)
     private func save() {
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+            DispatchQueue.main.async {
+                if settings.authorizationStatus == .denied {
+                    self.showNotificationAlert = true
+                } else {
+                    self.performSave()
+                }
+            }
+        }
+    }
+
+    private func performSave() {
         let mergedTime = mergeDateAndTime(date: selectedDate, time: selectedTime)
         if let editing = scheduleToEdit {
             let updated = Schedule(

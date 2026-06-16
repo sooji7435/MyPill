@@ -37,6 +37,14 @@ class CalendarViewModel: ObservableObject {
             .components(separatedBy: " ")
     }
 
+    // MARK: - 자정 후 앱 재진입 시 오늘 날짜 갱신
+    func refreshCurrentDate() {
+        let today = Date()
+        guard !calendar.isDate(today, inSameDayAs: currentDate) else { return }
+        currentDate = today
+        currentMonthOffset = 0
+    }
+
     // MARK: - offset 만큼 이동한 달의 Date 반환
     func month(for offset: Int) -> Date {
         calendar.date(byAdding: .month, value: offset, to: currentDate) ?? currentDate
