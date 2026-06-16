@@ -35,7 +35,7 @@ struct CalendarYearMonth: View {
             }
         }
         .font(.custom("Cafe24Dongdong", size: 30))
-        .foregroundStyle(.black)
+        .foregroundStyle(.primary)
         .padding()
     }
 }

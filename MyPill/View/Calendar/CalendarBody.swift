@@ -39,7 +39,7 @@ struct CalendarBody: View {
                     Text("\(value.day)")
                         .font(.custom("Cafe24Dongdong", size: 30))
                         .fontWeight(.semibold)
-                        .foregroundStyle(.primary)
+                        .foregroundStyle(isSelected ? .white : .primary)
                 }
                 Circle()
                     .fill(hasSchedules ? Color.MainColor : Color.clear)
