@@ -4,6 +4,9 @@ struct TimelineView: View {
     @EnvironmentObject var schedule: SchedulesViewModel
     @Binding var selectedDate: Date
 
+    @State private var timerTick = Date()
+    private let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
+
     var body: some View {
         let dailySchedules = schedule.schedules(for: selectedDate)
 
@@ -17,6 +20,7 @@ struct TimelineView: View {
             ForEach(dailySchedules) { sch in
                 ScheduleDetailView(
                     schedule: sch,
+                    timerTick: timerTick,
                     onUpdate: schedule.updateSchedule,
                     onDelete: schedule.removeSchedule
                 )

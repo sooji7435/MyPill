@@ -8,14 +8,13 @@ struct ScheduleDetailView: View {
 
     var onUpdate: ((Schedule) -> Void)?
     var onDelete: ((Schedule) -> Void)?
+    var timerTick: Date = Date()   // TimelineView에서 단일 타이머로 전달
 
     private static let timeFormatter: DateFormatter = {
         let f = DateFormatter()
         f.dateFormat = "a h:mm"
         return f
     }()
-
-    private let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
 
     var body: some View {
         VStack {
@@ -41,7 +40,7 @@ struct ScheduleDetailView: View {
                 .shadow(color: .black.opacity(0.05), radius: 12, x: 0, y: 6)
         )
         .onAppear { checkMissed() }
-        .onReceive(timer) { _ in checkMissed() }
+        .onChange(of: timerTick) { _, _ in checkMissed() }
         .sheet(isPresented: $showEditSheet) {
             ScheduleAddView(scheduleToEdit: schedule)
         }
