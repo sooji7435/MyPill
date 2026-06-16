@@ -35,7 +35,7 @@ struct CalendarBody: View {
             VStack(spacing: 2) {
                 ZStack {
                     Circle()
-                        .foregroundColor(isSelected ? Color.BackGroundColor : .clear)
+                        .foregroundColor(isSelected ? Color.MainColor : .clear)
                     Text("\(value.day)")
                         .font(.custom("Cafe24Dongdong", size: 30))
                         .fontWeight(.semibold)
