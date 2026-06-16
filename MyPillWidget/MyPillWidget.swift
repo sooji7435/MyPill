@@ -248,7 +248,7 @@ struct AccessoryRectangularView: View {
                 Text(next.title)
                     .font(.caption.bold())
                     .lineLimit(1)
-                Label(next.takeTime, format: .dateTime.hour().minute())
+                Text(next.takeTime, format: .dateTime.hour().minute())
                     .font(.caption2)
                     .foregroundStyle(.secondary)
             } else {
