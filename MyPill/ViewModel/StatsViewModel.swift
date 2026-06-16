@@ -83,9 +83,13 @@ class StatsViewModel: ObservableObject {
         return Double(past.filter { $0.isTaken }.count) / Double(past.count)
     }
 
-    private func dateKey(from date: Date) -> String {
+    private static let dateFormatter: DateFormatter = {
         let f = DateFormatter()
         f.dateFormat = "yyyy-MM-dd"
-        return f.string(from: date)
+        return f
+    }()
+
+    private func dateKey(from date: Date) -> String {
+        Self.dateFormatter.string(from: date)
     }
 }

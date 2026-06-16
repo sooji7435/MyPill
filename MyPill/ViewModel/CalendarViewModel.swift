@@ -24,11 +24,15 @@ class CalendarViewModel: ObservableObject {
     private let calendar = Calendar.current     // 매번 생성하지 않도록 저장
 
     // MARK: - 헤더: "yyyy년 MM월" → ["yyyy년", "MM월"]
+    private static let monthFormatter: DateFormatter = {
+        let f = DateFormatter()
+        f.dateFormat = "yyyy년 MM월"
+        f.locale = .autoupdatingCurrent
+        return f
+    }()
+
     func yearAndMonthComponents() -> [String] {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy년 MM월"
-        formatter.locale = .autoupdatingCurrent
-        return formatter.string(from: month(for: currentMonthOffset))
+        Self.monthFormatter.string(from: month(for: currentMonthOffset))
             .components(separatedBy: " ")
     }
 

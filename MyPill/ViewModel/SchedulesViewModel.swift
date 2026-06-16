@@ -69,13 +69,17 @@ class SchedulesViewModel: ObservableObject {
 
     // MARK: - 30분 후로 미루기 (Snooze)
     func snoozeSchedule(_ schedule: Schedule) {
+        let originalKey = dateKey(from: schedule.takeTime)
+        schedules[originalKey]?.removeAll { $0.id == schedule.id }
+        if schedules[originalKey]?.isEmpty == true {
+            schedules.removeValue(forKey: originalKey)
+        }
+
         var snoozed = schedule
-        
         snoozed.takeTime = Date().addingTimeInterval(30 * 60)
         snoozed.isMissed = false
-        
-        updateSchedule(snoozed)
-        
+        schedules[dateKey(from: snoozed.takeTime), default: []].append(snoozed)
+
         NotificationManager.shared.snoozeNotification(for: snoozed, minutes: 30)
     }
 

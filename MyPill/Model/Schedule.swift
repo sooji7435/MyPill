@@ -10,12 +10,6 @@
 
 import Foundation
 
-// MARK: - ScheduleStatus
-// 위젯에서도 상태 표시에 사용
-enum ScheduleStatus: String, Codable {
-    case taken, missed, postponed, upcoming
-}
-
 // MARK: - Schedule
 // 앱과 위젯이 공유하는 핵심 모델
 struct Schedule: Identifiable, Hashable, Codable {
@@ -46,20 +40,3 @@ struct Schedule: Identifiable, Hashable, Codable {
     }
 }
 
-// MARK: - Medicine
-// 향후 약 상세 정보 확장용 (현재 미사용)
-struct Medicine: Identifiable, Hashable, Codable {
-    let id: UUID
-    var name: String
-    var dosage: String
-    var time: Date
-    var status: ScheduleStatus
-
-    init(id: UUID = UUID(), name: String, dosage: String, time: Date, status: ScheduleStatus) {
-        self.id     = id
-        self.name   = name
-        self.dosage = dosage
-        self.time   = time
-        self.status = status
-    }
-}

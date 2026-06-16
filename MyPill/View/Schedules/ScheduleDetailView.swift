@@ -64,6 +64,8 @@ struct ScheduleDetailView: View {
                 .fill(Color.white)
                 .shadow(color: .black.opacity(0.05), radius: 12, x: 0, y: 6)
         )
+        .onAppear { checkMissed() }
+        .onReceive(timer) { _ in checkMissed() }
     }
 
     // MARK: - 아이콘 박스
@@ -124,35 +126,6 @@ struct ScheduleDetailView: View {
                         .padding(.horizontal, 8)
                         .padding(.vertical, 4)
                 }
-            }
-        }
-    }
-
-    // MARK: - 체크 버튼
-    private var statusButton: some View {
-            Button {
-                guard !schedule.isMissed else { return }
-                schedule.isTaken.toggle()
-                onUpdate?(schedule)
-            } label: {
-                statusIcon
-            }
-            .buttonStyle(.plain)
-    }
-
-    @ViewBuilder
-    private var statusIcon: some View {
-        VStack {
-            Spacer()
-            if schedule.isTaken {
-                Image(systemName: "checkmark.circle.fill")
-                    .font(.system(size: 32)).foregroundStyle(.green)
-            } else if schedule.isMissed {
-                Image(systemName: "xmark.circle.fill")
-                    .font(.system(size: 32)).foregroundStyle(.red)
-            } else {
-                Image(systemName: "circle")
-                    .font(.system(size: 32)).foregroundStyle(.secondary)
             }
         }
     }

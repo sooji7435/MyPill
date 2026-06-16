@@ -96,7 +96,7 @@ struct StatsView: View {
                 )
                 .foregroundStyle(
                     stat.adherenceRate >= 0.8 ? Color.MainColor :
-                    stat.adherenceRate >= 0.5 ? Color.orange : Color.color4
+                    stat.adherenceRate >= 0.5 ? Color.orange : Color.appColor4
                 )
                 .cornerRadius(6)
 

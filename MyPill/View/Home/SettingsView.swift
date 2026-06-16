@@ -13,7 +13,7 @@ struct SettingsView: View {
         NavigationStack {
             List {
                 Section("앱 정보") {
-                    LabeledContent("버전", value: "\(version!)")
+                    LabeledContent("버전", value: version ?? "알 수 없음")
                 }
             }
             .navigationTitle("설정")
