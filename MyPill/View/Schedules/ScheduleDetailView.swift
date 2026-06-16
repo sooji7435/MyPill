@@ -8,7 +8,7 @@ struct ScheduleDetailView: View {
 
     var onUpdate: ((Schedule) -> Void)?
     var onDelete: ((Schedule) -> Void)?
-    var timerTick: Date = Date()   // TimelineView에서 단일 타이머로 전달
+    var timerTick: Date = Date()
 
     private static let timeFormatter: DateFormatter = {
         let f = DateFormatter()
@@ -29,9 +29,7 @@ struct ScheduleDetailView: View {
 
             if schedule.isMissed && !schedule.isTaken {
                 Divider().padding(.horizontal)
-                snoozeButton
-                    .padding(.bottom, 8)
-                    .padding(.horizontal)
+                snoozeButton.padding(.bottom, 8).padding(.horizontal)
             }
         }
         .background(
@@ -51,7 +49,6 @@ struct ScheduleDetailView: View {
         }
     }
 
-    // MARK: - 아이콘 박스
     private var iconBox: some View {
         ZStack {
             Circle()
@@ -64,18 +61,16 @@ struct ScheduleDetailView: View {
         }
     }
 
-    // MARK: - 텍스트 정보
     private var infoText: some View {
         VStack(alignment: .leading) {
             HStack(spacing: 4) {
                 Text(schedule.title)
-                    .font(.custom("Cafe24Dongdong", size: 22))
+                    .font(.cafe(22))
                     .fontWeight(.semibold)
                 if schedule.repeatType != .none {
                     Text(schedule.repeatType.rawValue)
-                        .font(.custom("Cafe24Dongdong", size: 11))
-                        .padding(.horizontal, 6)
-                        .padding(.vertical, 2)
+                        .font(.cafe(11))
+                        .padding(.horizontal, 6).padding(.vertical, 2)
                         .background(Color.MainColor.opacity(0.12))
                         .foregroundStyle(Color.MainColor)
                         .clipShape(Capsule())
@@ -83,39 +78,32 @@ struct ScheduleDetailView: View {
             }
 
             if let desc = schedule.description, !desc.isEmpty {
-                Text(desc)
-                    .font(.custom("Cafe24Dongdong", size: 16))
-                    .foregroundStyle(Color.gray)
+                Text(desc).font(.cafe(16)).foregroundStyle(.secondary)
             }
 
             HStack {
-                Label(
-                    Self.timeFormatter.string(from: schedule.takeTime),
-                    systemImage: "clock"
-                )
-                .font(.custom("Cafe24Dongdong", size: 12))
-                .foregroundStyle(Color.gray)
+                Label(Self.timeFormatter.string(from: schedule.takeTime), systemImage: "clock")
+                    .font(.cafe(12))
+                    .foregroundStyle(.secondary)
 
                 if schedule.isMissed {
-                    Text("놓침")
-                        .font(.custom("Cafe24Dongdong", size: 12))
-                        .padding(.horizontal, 8).padding(.vertical, 4)
-                        .background(Color.red.opacity(0.12))
-                        .foregroundStyle(.red)
-                        .clipShape(Capsule())
+                    statusBadge("놓침", color: .red)
                 } else if schedule.isTaken {
-                    Text("복용 완료")
-                        .font(.custom("Cafe24Dongdong", size: 12))
-                        .padding(.horizontal, 8).padding(.vertical, 4)
-                        .background(Color.green.opacity(0.12))
-                        .foregroundStyle(.green)
-                        .clipShape(Capsule())
+                    statusBadge("복용 완료", color: .green)
                 }
             }
         }
     }
 
-    // MARK: - 체크 버튼
+    private func statusBadge(_ text: String, color: Color) -> some View {
+        Text(text)
+            .font(.cafe(12))
+            .padding(.horizontal, 8).padding(.vertical, 4)
+            .background(color.opacity(0.12))
+            .foregroundStyle(color)
+            .clipShape(Capsule())
+    }
+
     private var checkButton: some View {
         Button {
             guard !schedule.isMissed else { return }
@@ -135,7 +123,6 @@ struct ScheduleDetailView: View {
         .buttonStyle(.plain)
     }
 
-    // MARK: - 편집/삭제 메뉴
     private var menuButton: some View {
         Menu {
             Button { showEditSheet = true } label: {
@@ -154,7 +141,6 @@ struct ScheduleDetailView: View {
         }
     }
 
-    // MARK: - 스누즈 버튼
     private var snoozeButton: some View {
         Button {
             schedulesViewModel.snoozeSchedule(schedule)
@@ -163,7 +149,7 @@ struct ScheduleDetailView: View {
             }
         } label: {
             Label("30분 후 다시 알림", systemImage: "clock.arrow.circlepath")
-                .font(.custom("Cafe24Dongdong", size: 12))
+                .font(.cafe(12))
                 .foregroundStyle(Color.appColor4)
                 .padding(8)
                 .background(Color.appColor4.opacity(0.1), in: Capsule())
@@ -171,7 +157,6 @@ struct ScheduleDetailView: View {
         .frame(maxWidth: .infinity, alignment: .trailing)
     }
 
-    // MARK: - 시간 지나면 자동 missed
     private func checkMissed() {
         guard !schedule.isTaken, Date() > schedule.takeTime else { return }
         schedule.isMissed = true

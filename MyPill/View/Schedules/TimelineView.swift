@@ -14,7 +14,7 @@ struct TimelineView: View {
             if dailySchedules.isEmpty {
                 let isToday = Calendar.current.isDateInToday(selectedDate)
                 Text(isToday ? "오늘 일정이 없습니다" : "해당 날짜의 일정이 없습니다")
-                    .font(.custom("Cafe24Dongdong", size: 20))
+                    .font(.cafe(20))
                     .foregroundStyle(.secondary)
                     .padding(.vertical, 32)
             } else {
@@ -25,7 +25,7 @@ struct TimelineView: View {
                         onDelete: schedule.removeSchedule,
                         timerTick: timerTick
                     )
-                    .font(.custom("Cafe24Dongdong", size: 30))
+                    .font(.cafe(30))
                     .foregroundStyle(.primary)
                     .disclosureGroupStyle(MyDisclosureStyle())
                     .padding()

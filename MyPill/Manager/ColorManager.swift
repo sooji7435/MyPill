@@ -1,19 +1,17 @@
-//
-//  ColorManager.swift
-//  PillManager
-//
-//  Created by 박윤수 on 6/3/25.
-//
-
 import SwiftUI
 
-// MARK: - Asset 기반 색상 확장
+// MARK: - 색상
 extension Color {
-    // Asset 원본
     static let BackGroundColor = Color("Color1")
-    static let MainColor = Color("Color2")
-    static let TintColor = Color("Color3")
-    static let appColor4 = Color("Color4")
+    static let MainColor       = Color("Color2")
+    static let TintColor       = Color("Color3")
+    static let appColor4       = Color("Color4")
 }
 
-// MARK: - 사용 예시 (뷰에서 Color.appColor1 처럼 사용)
+// MARK: - 커스텀 폰트 헬퍼
+extension Font {
+    static func cafe(_ size: CGFloat) -> Font {
+        .custom("Cafe24Dongdong", size: size)
+    }
+}
+

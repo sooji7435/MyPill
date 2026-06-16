@@ -26,7 +26,7 @@ struct SchedulesIconView: View {
                         .background(Color.MainColor.opacity(0.2))
                         .clipShape(Circle())
                     Text(item.title)
-                        .font(.custom("Cafe24Dongdong", size: 24))
+                        .font(.cafe(24))
                         .lineLimit(1)
                         .truncationMode(.tail)
                 }

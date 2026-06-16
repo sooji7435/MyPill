@@ -9,10 +9,11 @@ import Foundation
 
 // MARK: - Model
 struct DateInfo: Identifiable {
-    let id: String = UUID().uuidString
     let day: Int        // -1이면 빈 셀(padding)
     let date: Date
 
+    // 안정적 id: 매 렌더마다 UUID 새로 생성하지 않도록
+    var id: String { "\(day)_\(Int(date.timeIntervalSince1970))" }
     var isPadding: Bool { day == -1 }
 }
 

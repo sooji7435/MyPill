@@ -31,7 +31,7 @@ struct MyMedicine: View {
                 
                 Text("추가")
                     .foregroundStyle(.gray)
-                    .font(.custom("Cafe24Dongdong", size: 24))
+                    .font(.cafe(24))
             }
         }
     }

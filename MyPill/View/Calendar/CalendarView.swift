@@ -2,16 +2,13 @@ import SwiftUI
 
 struct CalendarView: View {
     @EnvironmentObject var calendar: CalendarViewModel
-
-    @State private var monthOffset: Int = 0
-
     @Binding var selectedDate: Date
 
     var body: some View {
         VStack {
-            CalendarYearMonth(monthOffset: $monthOffset)
+            CalendarYearMonth()
             CalendarHeader()
-            CalendarBody(selectedDate: $selectedDate, monthOffset: $monthOffset)
+            CalendarBody(selectedDate: $selectedDate)
         }
         .background(Color(.systemBackground), in: RoundedRectangle(cornerRadius: 24))
     }

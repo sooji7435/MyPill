@@ -54,9 +54,9 @@ struct StatsView: View {
                 .font(.system(size: 48))
                 .foregroundStyle(Color.appColor4)
             Text("아직 기록이 없어요")
-                .font(.custom("Cafe24Dongdong", size: 24))
+                .font(.cafe(24))
             Text("일정을 추가하고 복용 기록을 쌓아보세요")
-                .font(.custom("Cafe24Dongdong", size: 16))
+                .font(.cafe(16))
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
         }
@@ -79,7 +79,7 @@ struct StatsView: View {
                     .animation(.easeInOut(duration: 0.8), value: statsVM.overallRate)
                 VStack {
                     Text("\(Int(statsVM.overallRate * 100))%")
-                        .font(.custom("Cafe24Dongdong", size: 32))
+                        .font(.cafe(32))
                         .foregroundStyle(Color.appColor4)
                     Text("전체 복용률")
                         .font(.caption)
@@ -94,7 +94,7 @@ struct StatsView: View {
     private var barChart: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(selectedTab == .weekly ? "최근 7일" : "이번 달 주별")
-                .font(.custom("Cafe24Dongdong", size: 20))
+                .font(.cafe(20))
 
             Chart(currentStats) { stat in
                 BarMark(
@@ -158,7 +158,7 @@ struct StatCard: View {
     var body: some View {
         VStack(spacing: 6) {
             Text(value)
-                .font(.custom("Cafe24Dongdong", size: 24))
+                .font(.cafe(24))
                 .foregroundStyle(color)
             Text(title)
                 .font(.caption)

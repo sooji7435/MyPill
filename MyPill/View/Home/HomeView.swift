@@ -35,7 +35,7 @@ struct HomeView: View {
         VStack(spacing: 0) {
             HStack {
                 Text("내 일정")
-                    .font(.custom("Cafe24Dongdong", size: 30))
+                    .font(.cafe(30))
                     .padding(.horizontal)
                 Spacer()
             }
