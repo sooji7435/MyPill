@@ -5,19 +5,17 @@ struct MainTabView: View {
 
     var body: some View {
         TabView(selection: $selectedTab) {
-            Tab("일정", systemImage: "calendar", value: "home") {
-                HomeView()
-            }
-            Tab("통계", systemImage: "chart.bar.fill", value: "stats") {
-                StatsView()
-            }
-            Tab("설정", systemImage: "gearshape", value: "settings") {
-                SettingsView()
-            }
+            HomeView()
+                .tabItem { Label("일정", systemImage: "calendar") }
+                .tag("home")
+            StatsView()
+                .tabItem { Label("통계", systemImage: "chart.bar.fill") }
+                .tag("stats")
+            SettingsView()
+                .tabItem { Label("설정", systemImage: "gearshape") }
+                .tag("settings")
         }
-        .tabViewStyle(.sidebarAdaptable)
         .tint(Color.MainColor)
-        // 위젯 탭 시 홈 탭으로 이동 (Info.plist에 "mypill" URL 스킴 등록 필요)
         .onOpenURL { _ in selectedTab = "home" }
     }
 }
